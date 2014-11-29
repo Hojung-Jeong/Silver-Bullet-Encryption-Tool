@@ -1,6 +1,11 @@
 Silver-Bullet-Encryption-Tool
 =============================
+Silver Bullet Encryption Tool is an uncrackable encryption Tool based on one-time pad model.
 
-Silver Bullet Encryption Tool is an uncrackable encryption tool based on one-time pad model. If you want to use this tool, execute bullet.py script
+It contains true random number generator which makes data corruptions intentionally with several threads to make true randomness.
 
-Hope you enjoy it
+To use this tool, please execute bullet.py script.
+
+If you want to use this tool in other programmes, copy the bullet_parts directory in your programme, import sys and append the directory as an import path, and import primer module.
+
+Thanks.
