@@ -2,9 +2,8 @@ import propellant
 
 
 
-
-
 end=256
+ascii_buffer=161
 
 
 def encrypt(user_input):
@@ -22,9 +21,9 @@ def encrypt(user_input):
         encrypted=element+key_gen
         acceptable=encrypted%end
 
-        key.append(chr(key_gen+200))
+        key.append(chr(key_gen+ascii_buffer))
 
-        filtred.append(chr(acceptable+200))
+        filtred.append(chr(acceptable+ascii_buffer))
 
 
     finished_string=''.join(filtred)
@@ -48,10 +47,10 @@ def decrypt (encrypted_string, key):
 
 
     for element in encrypted_list:
-        string.append(ord(element)-200)
+        string.append(ord(element)-ascii_buffer)
 
     for element in key_list:
-        key.append(ord(element)-200)
+        key.append(ord(element)-ascii_buffer)
 
 
     decrypted_list=[]
