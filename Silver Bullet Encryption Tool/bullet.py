@@ -144,8 +144,6 @@ def operation(command):
             else:
                 os.makedirs(dirname)
 
-
-
             string, key = primer.encrypt(reader)
 
             with open (dirname+'/Encrypted.txt', 'w') as opener:
