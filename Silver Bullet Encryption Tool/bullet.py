@@ -78,8 +78,9 @@ def operation(command):
 
 
             input('Operation finished! Please hit enter to go ahead')
-            next=input(ask)
-            operation(next)
+            command=input(ask)
+            command=command.strip()
+            operation(command)
         except:
             print('Oops! There was an unexpected error')
 
@@ -101,8 +102,9 @@ def operation(command):
 
 
                 input('Operation finished! Please hit enter to go ahead')
-                next=input(ask)
-                operation(next)
+                command=input(ask)
+                command=command.strip()
+                operation(command)
             else:
                 print('Enter a valid key')
                 operation('d')
@@ -158,16 +160,13 @@ def operation(command):
             print("\n\nEncrypting Succeeded! Please check the files inside the directory named after your file name")
 
 
-            input('\n\nOperation finished! Please hit enter to go ahead')
-            next=input(ask)
-            operation(next)
-
-
-        except UnicodeDecodeError:
-            print('\n\nUTF-8 cannot read the file you want to encrypt')
+            input('Operation finished! Please hit enter to go ahead')
+            command=input(ask)
+            command=command.strip()
+            operation(command)
 
         except:
-            print('\n\nPython cannot read the file')
+            print('\n\nPython cannot read the file.')
             operation('ef')
 
 
