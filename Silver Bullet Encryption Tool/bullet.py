@@ -157,8 +157,6 @@ def operation(command):
 
             print("\n\nEncrypting Succeeded! Please check the files inside the directory named after your file name")
 
-
-            input('Operation finished! Please hit enter to go ahead')
             command=input(ask)
             command=command.strip()
             operation(command)
@@ -184,8 +182,6 @@ def operation(command):
 
             print('\nDecrypted file was successfully created\n\n')
 
-
-            input('Operation finished! Please hit enter to go ahead')
             next=input(ask)
             operation(ask)
 
