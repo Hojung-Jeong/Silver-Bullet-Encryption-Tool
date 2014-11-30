@@ -1,5 +1,7 @@
 Silver-Bullet-Encryption-Tool
 =============================
+The only bullet that survives the hardship
+
 Silver Bullet Encryption Tool is an uncrackable encryption Tool based on one-time pad model.
 
 It contains true random number generator which makes data corruptions intentionally with several threads to make true randomness.
