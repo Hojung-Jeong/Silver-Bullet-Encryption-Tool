@@ -156,7 +156,8 @@ def operation(command):
                 opener.write(readme)
 
             print("\n\nEncrypting Succeeded! Please check the files inside the directory named after your file name")
-
+            
+            input('Please hit enter to go ahead')
             command=input(ask)
             command=command.strip()
             operation(command)
@@ -182,8 +183,10 @@ def operation(command):
 
             print('\nDecrypted file was successfully created\n\n')
 
-            next=input(ask)
-            operation(ask)
+            input('Please hit enter to go ahead')
+            command=input(ask)
+            command=command.strip()
+            operation(command)
 
         except:
             print('Make sure that Encrypted.txt and Key.txt are in the given directory\nOr check whether you typed the correct directory name')
