@@ -162,6 +162,10 @@ def operation(command):
             next=input(ask)
             operation(next)
 
+
+        except UnicodeDecodeError:
+            print('\n\nUTF-8 cannot read the file you want to encrypt')
+
         except:
             print('\n\nPython cannot read the file')
             operation('ef')
