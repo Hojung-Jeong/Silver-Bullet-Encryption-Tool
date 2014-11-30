@@ -126,7 +126,7 @@ def operation(command):
             check=os.path.isfile(name)
 
             holder=[]
-            info=[]
+            extension=[]
 
             for element in name_list:
                 if name_list.index(element)<name_list.index('.'):
@@ -134,7 +134,7 @@ def operation(command):
 
             for element in name_list:
                 if name_list.index(element)>name_list.index('.'):
-                    info.append(element)
+                    extension.append(element)
 
             dirname=''.join(holder)
 
@@ -156,9 +156,9 @@ def operation(command):
             with open (dirname+'/README.txt', 'w') as opener:
                 opener.write(readme)
 
-            with open (dirname+'/Info.inf', 'w') as opener:
-                info=''.join(info)
-                opener.write(info)
+            with open (dirname+'/.Extension.info', 'w') as opener:
+                extension=''.join(extension)
+                opener.write(extension)
 
 
             print("\n\nEncrypting Succeeded! Please check the files inside the directory named after your file name")
@@ -181,7 +181,7 @@ def operation(command):
             dirname=input('\n\nEnter the name of the directory encrypted file and key file are in: ')
             string=open(dirname+'/Encrypted.txt', 'r').read()
             key=open(dirname+'/Key.txt', 'r').read()
-            extension=open(dirname+'/Info.inf', 'r').read()
+            extension=open(dirname+'/.Extension.info', 'r').read()
 
             decrypted=primer.decrypt(string, key)
 
