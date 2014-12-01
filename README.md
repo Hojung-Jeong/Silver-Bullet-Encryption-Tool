@@ -10,4 +10,4 @@ To use this tool, please execute bullet.py script.
 
 If you want to use this tool in other programmes, copy the bullet_parts directory in your programme, import sys and append the directory as an import path, and import primer module.
 
-Thanks.
+Hope you enjoy it
