@@ -121,31 +121,28 @@ def operation(command):
         try:
             name=input('\n\n\nCopy the file you want to encrypt to the directory bullet.py exists,\nand enter the name of your file: ')
             reader = open (name, 'r').read()
-            name_list=list(name)
 
-            check=os.path.isfile(name)
+            dirname, extension = os.path.splitext(name)
 
-            holder=[]
-            extension=[]
+            check_file=os.path.isfile(name)
 
-            for element in name_list:
-                if name_list.index(element)<name_list.index('.'):
-                    holder.append(element)
+            if check_file is True:
+            	pass
+            else:
+            	print(name, "doesn't exist")
+            	operation('ef')
 
-            for element in name_list:
-                if name_list.index(element)>name_list.index('.'):
-                    extension.append(element)
 
-            dirname=''.join(holder)
+            check_dir = os.path.exists(dirname)
 
-            check = os.path.exists(dirname)
-
-            if check is True:
+            if check_dir is True:
                 pass
             else:
                 os.makedirs(dirname)
 
+
             string, key = primer.encrypt(reader)
+
 
             with open (dirname+'/Encrypted.txt', 'w') as opener:
                 opener.write(string)
@@ -157,7 +154,6 @@ def operation(command):
                 opener.write(readme)
 
             with open (dirname+'/.Extension.info', 'w') as opener:
-                extension=''.join(extension)
                 opener.write(extension)
 
 
@@ -169,8 +165,12 @@ def operation(command):
             operation(command)
 
         except:
-            print('\n\nPython cannot read the file.')
-            operation('ef')
+            print('\n\nPython cannot read the file. Operation aborted')
+
+            input('Please hit enter to go ahead')
+            command=input(ask)
+            command=command.strip()
+            operation(command)
 
 
 
