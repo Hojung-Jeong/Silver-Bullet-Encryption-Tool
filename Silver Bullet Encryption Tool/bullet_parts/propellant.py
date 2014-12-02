@@ -19,7 +19,7 @@ def propellant():
                 opener.write('')
         
 
-        def raw():
+        def timer():
             get_time=list(str(time.time()))
 
             holder=[]
@@ -36,10 +36,26 @@ def propellant():
 
 
 
+        def clock():
+            get_time=list(str(time.clock()))
+
+            holder=[]
+
+            for element in get_time:
+                if element is not '.':
+                    holder.append(element)
+                else:
+                    holder.append(ord(element))
+
+            for element in holder:
+                with open (num_gen, 'a') as opener:
+                    opener.write(str(element))
+
+
 
         def thread_set_1():
-            thread_1=Thread(target=raw)
-            thread_2=Thread(target=raw)
+            thread_1=Thread(target=timer)
+            thread_2=Thread(target=clock)
             thread_1.start()
             thread_2.start()
 
@@ -82,5 +98,3 @@ def propellant():
             return generate()
         except:
             pass
-
-
