@@ -5,8 +5,10 @@ from threading import Thread
 
 
 
+#If your computer does not make enough data corruption, please increase the level value
 
-def propellant():
+
+def propellant(level=2):
 
     def generate():
         num_gen='bullet_parts/number.num'
@@ -53,9 +55,15 @@ def propellant():
 
 
 
-        def thread_set_1():
+        def start_set():
             thread_1=Thread(target=timer)
             thread_2=Thread(target=clock)
+            thread_1.start()
+            thread_2.start()
+
+        def thread_set_1():
+            thread_1=Thread(target=start_set)
+            thread_2=Thread(target=start_set)
             thread_1.start()
             thread_2.start()
 
@@ -71,8 +79,72 @@ def propellant():
             thread_1.start()
             thread_2.start()
 
+        def thread_set_4():
+            thread_1=Thread(target=thread_set_3)
+            thread_2=Thread(target=thread_set_3)
+            thread_1.start()
+            thread_2.start()
 
-        thread_set_3()
+        def thread_set_5():
+            thread_1=Thread(target=thread_set_4)
+            thread_2=Thread(target=thread_set_4)
+            thread_1.start()
+            thread_2.start()
+
+        def thread_set_6():
+            thread_1=Thread(target=thread_set_5)
+            thread_2=Thread(target=thread_set_5)
+            thread_1.start()
+            thread_2.start()
+
+        def thread_set_7():
+            thread_1=Thread(target=thread_set_6)
+            thread_2=Thread(target=thread_set_6)
+            thread_1.start()
+            thread_2.start()
+
+        def thread_set_8():
+            thread_1=Thread(target=thread_set_7)
+            thread_2=Thread(target=thread_set_7)
+            thread_1.start()
+            thread_2.start()
+
+        def thread_set_9():
+            thread_1=Thread(target=thread_set_8)
+            thread_2=Thread(target=thread_set_8)
+            thread_1.start()
+            thread_2.start()
+
+        def thread_set_10():
+            thread_1=Thread(target=thread_set_9)
+            thread_2=Thread(target=thread_set_9)
+            thread_1.start()
+            thread_2.start()
+
+
+        if level==1:
+        	thread_set_1()
+        if level==2:
+        	thread_set_2()
+        if level==3:
+        	thread_set_3()
+        if level==4:
+        	thread_set_4()
+        if level==5:
+        	thread_set_5()
+        if level==6:
+        	thread_set_6()
+        if level==7:
+        	thread_set_7()
+        if level==8:
+        	thread_set_8()
+        if level==9:
+        	thread_set_9()
+        if level==10:
+        	thread_set_10()
+
+
+
 
         
         reader=open(num_gen, 'r').read()
@@ -98,3 +170,4 @@ def propellant():
             return generate()
         except:
             pass
+
