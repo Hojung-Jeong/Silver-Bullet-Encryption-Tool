@@ -152,15 +152,7 @@ def propellant(level=2):
         with open(num_gen, 'w') as opener:
             opener.write('')
 
-        numbers=list(reader)
-
-
-        joined=int(''.join(numbers))
-
-
-
-        if joined is not None:
-            return joined
+        return int(reader)
 
         
 
