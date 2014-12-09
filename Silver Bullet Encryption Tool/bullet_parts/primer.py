@@ -15,7 +15,7 @@ def encrypt(user_input):
 
 
     for element in raw_list:
-        key_value=propellant.propellant()
+        key_value=propellant.generate()
 
         key_gen=key_value%end
         encrypted=element+key_gen
@@ -30,6 +30,7 @@ def encrypt(user_input):
     finished_key=''.join(key)
 
     return (finished_string, finished_key)
+
 
 
 
