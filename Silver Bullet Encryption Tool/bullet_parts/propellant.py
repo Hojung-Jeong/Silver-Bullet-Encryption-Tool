@@ -88,8 +88,8 @@ def propellant():
 	        thread_2.start()
 
 	    def thread_set_2():
-	        thread_1=Thread(target=start_set)
-	        thread_2=Thread(target=start_set)
+	        thread_1=Thread(target=thread_set_1)
+	        thread_2=Thread(target=thread_set_1)
 	        thread_1.start()
 	        thread_2.start()
 
