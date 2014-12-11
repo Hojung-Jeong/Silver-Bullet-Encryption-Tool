@@ -59,7 +59,7 @@ def propellant():
 
 
 
-		def thread_set():
+		def thread_set_1():
 			thread_0=Thread(target=zero)
 			thread_1=Thread(target=one)
 			thread_2=Thread(target=two)
@@ -81,8 +81,30 @@ def propellant():
 			thread_8.start()
 			thread_9.start()
 
-		thread_1=Thread(target=thread_set)
-		thread_2=Thread(target=thread_set)
+		def thread_set_2():
+			thread_0=Thread(target=nine)
+			thread_1=Thread(target=eight)
+			thread_2=Thread(target=seven)
+			thread_3=Thread(target=six)
+			thread_4=Thread(target=five)
+			thread_5=Thread(target=four)
+			thread_6=Thread(target=three)
+			thread_7=Thread(target=two)
+			thread_8=Thread(target=one)
+			thread_9=Thread(target=zero)
+			thread_0.start()
+			thread_1.start()
+			thread_2.start()
+			thread_3.start()
+			thread_4.start()
+			thread_5.start()
+			thread_6.start()
+			thread_7.start()
+			thread_8.start()
+			thread_9.start()
+
+		thread_1=Thread(target=thread_set_1)
+		thread_2=Thread(target=thread_set_2)
 		thread_1.start()
 		thread_2.start()
 
