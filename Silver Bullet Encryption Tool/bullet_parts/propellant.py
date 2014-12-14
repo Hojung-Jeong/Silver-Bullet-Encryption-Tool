@@ -7,14 +7,6 @@ def propellant():
 
 	def generate():
 		num_gen='bullet_parts/number.num'
-		check=os.path.isfile(num_gen)
-
-		if check is True:
-			pass
-		else:
-			with open (num_gen, 'w') as opener:
-				opener.write('')
-
 
 		def zero():
 			with open (num_gen, 'a') as opener:
