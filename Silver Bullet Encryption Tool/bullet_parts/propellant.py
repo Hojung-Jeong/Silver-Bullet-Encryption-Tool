@@ -1,6 +1,4 @@
-import os
 from threading import Thread
-
 
 
 def propellant():
