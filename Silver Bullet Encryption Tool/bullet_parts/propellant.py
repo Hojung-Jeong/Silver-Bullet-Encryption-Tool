@@ -6,45 +6,100 @@ def propellant():
 	def generate():
 		num_gen='bullet_parts/number.num'
 
+
 		def zero():
+			start=0
+
+			while start<=0:
+				start+=1
+
 			with open (num_gen, 'a') as opener:
-				opener.write('0')
+				opener.write(str(start))
+
 
 		def one():
+			start=0
+
+			while start<=1:
+				start+=1
+
 			with open (num_gen, 'a') as opener:
-				opener.write('1')
+				opener.write(str(start))
+
 
 		def two():
+			start=0
+
+			while start<=2:
+				start+=1
+
 			with open (num_gen, 'a') as opener:
-				opener.write('2')
+				opener.write(str(start))
+
 
 		def three():
+			start=0
+
+			while start<=3:
+				start+=1
+
 			with open (num_gen, 'a') as opener:
-				opener.write('3')
+				opener.write(str(start))
+
 
 		def four():
+			start=0
+
+			while start<=4:
+				start+=1
+
 			with open (num_gen, 'a') as opener:
-				opener.write('4')
+				opener.write(str(start))
 
 		def five():
+			start=0
+
+			while start<=5:
+				start+=1
+
 			with open (num_gen, 'a') as opener:
-				opener.write('5')
+				opener.write(str(start))
 
 		def six():
+			start=0
+
+			while start<=6:
+				start+=1
+
 			with open (num_gen, 'a') as opener:
-				opener.write('6')
+				opener.write(str(start))
 
 		def seven():
+			start=0
+
+			while start<=7:
+				start+=1
+
 			with open (num_gen, 'a') as opener:
-				opener.write('7')
+				opener.write(str(start))
 
 		def eight():
+			start=0
+
+			while start<=8:
+				start+=1
+
 			with open (num_gen, 'a') as opener:
-				opener.write('8')
+				opener.write(str(start))
 
 		def nine():
+			start=0
+
+			while start<=9:
+				start+=1
+
 			with open (num_gen, 'a') as opener:
-				opener.write('9')
+				opener.write(str(start))
 
 
 
