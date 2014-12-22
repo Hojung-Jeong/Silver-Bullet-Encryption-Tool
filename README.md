@@ -23,4 +23,4 @@ The universe is made up of 12 fundamental particles interacting in 4 different w
 
 If this is the case, the universe is neither infinite or finite. It can be considered both. It is finite because there is definitely boundary of the entire universe, but at the same time, the boundary is being always pushed further and further infinitely.
 
-Againg, hope you enjoy this tool and my theory. If you are good at mathematics, please prove this theory.
+Again, hope you enjoy this tool and my theory. If you are good at mathematics, please prove this theory.
