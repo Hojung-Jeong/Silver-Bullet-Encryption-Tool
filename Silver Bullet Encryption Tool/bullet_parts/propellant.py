@@ -23,7 +23,6 @@ def propellant():
 			with open (num_gen, 'a') as opener:
 				opener.write('3')
 
-
 		def four():
 			with open (num_gen, 'a') as opener:
 				opener.write('4')
