@@ -8,98 +8,44 @@ def propellant():
 
 
 		def zero():
-			start=0
-
-			while start<=0:
-				start+=1
-
 			with open (num_gen, 'a') as opener:
-				opener.write(str(start))
-
+				opener.write('0')
 
 		def one():
-			start=0
-
-			while start<=1:
-				start+=1
-
 			with open (num_gen, 'a') as opener:
-				opener.write(str(start))
-
+				opener.write('1')
 
 		def two():
-			start=0
-
-			while start<=2:
-				start+=1
-
 			with open (num_gen, 'a') as opener:
-				opener.write(str(start))
-
+				opener.write('2')
 
 		def three():
-			start=0
-
-			while start<=3:
-				start+=1
-
 			with open (num_gen, 'a') as opener:
-				opener.write(str(start))
-
+				opener.write('3')
 
 		def four():
-			start=0
-
-			while start<=4:
-				start+=1
-
 			with open (num_gen, 'a') as opener:
-				opener.write(str(start))
+				opener.write('4')
 
 		def five():
-			start=0
-
-			while start<=5:
-				start+=1
-
 			with open (num_gen, 'a') as opener:
-				opener.write(str(start))
+				opener.write('5')
 
 		def six():
-			start=0
-
-			while start<=6:
-				start+=1
-
 			with open (num_gen, 'a') as opener:
-				opener.write(str(start))
+				opener.write('6')
 
 		def seven():
-			start=0
-
-			while start<=7:
-				start+=1
-
 			with open (num_gen, 'a') as opener:
-				opener.write(str(start))
+				opener.write('7')
 
 		def eight():
-			start=0
-
-			while start<=8:
-				start+=1
-
 			with open (num_gen, 'a') as opener:
-				opener.write(str(start))
+				opener.write('8')
 
 		def nine():
-			start=0
-
-			while start<=9:
-				start+=1
-
 			with open (num_gen, 'a') as opener:
-				opener.write(str(start))
+				opener.write('9')
 
 
 		#==================================================
