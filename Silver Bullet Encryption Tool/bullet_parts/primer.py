@@ -70,13 +70,13 @@ def decrypt (encrypted_string, key, passphrase):
         string.append(ord(element)-the_number)
 
     for element in key_list:
-        key.append(ord(element)-the_number+random.randrange(the_number))
+        key.append(ord(element)-the_number)
 
 
     decrypted_list=[]
 
     for index in range(len(string)):
-        decrypted_element=string[index]-key[index]
+        decrypted_element=string[index]-key[index]+random.randrange(the_number)
 
         if decrypted_element>=0:
             decrypted_list.append(decrypted_element)
