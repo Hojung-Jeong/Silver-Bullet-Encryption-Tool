@@ -25,11 +25,10 @@ def encrypt(user_input, passphrase):
         key_value=propellant.propellant()
 
         key_gen=key_value%the_number
-        locked=key_gen-random.randrange(the_number)
         encrypted=element+key_gen
         acceptable=encrypted%the_number
 
-        key.append(chr(locked+the_number))
+        key.append(chr(key_gen+the_number-random.randrange(the_number)))
 
         filtred.append(chr(acceptable+the_number))
 
