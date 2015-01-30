@@ -12,7 +12,7 @@ It works like this. Each byte is encrypted using this algorithm (a is plaintext,
 
 a+b-c=10
 
-Suppose a possible attacker gained the key (b), and encrypted byte (10). If he does not know the pseudo random number (c), still anything is possible for the plaintext.
+Suppose a possible attacker gained the value of the communicated key (b-c), and encrypted byte (10). If he does not know the pseudo random number (c), still anything is possible for the plaintext.
 
 This means if he/she know 10 and the value of b-c, he/she has no way to know a.
 
