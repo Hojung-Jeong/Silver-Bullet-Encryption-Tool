@@ -94,7 +94,7 @@ def operation(command):
         try:
             encrypted_string=input('\n\n\nEnter the  string you want to decrypt: ')
             key=input('Enter the key for the string: ')
-            passphrase=input('Enter the passphrase for the string: ')
+            passphrase=input('Enter the passphrase for the encrypted string: ')
 
             if len(encrypted_string)==len(key):
 
@@ -122,7 +122,7 @@ def operation(command):
     elif command=='ef':
         try:
             name=input('\n\n\nCopy the file you want to encrypt to the directory bullet.py exists,\nand enter the name of your file: ')
-            passphrase=input('Enter the passphrase for the file to encrypt: ')
+            passphrase=input('Enter a passphrase for the file to encrypt: ')
             reader = open (name, 'r').read()
 
             dirname, extension = os.path.splitext(name)
