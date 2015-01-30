@@ -8,7 +8,13 @@ It contains true random number generator which makes data corruptions intentiona
 
 From ver. 2.0, Silver Bullet Encryption Tool started to use three dimensional encryption scheme. It means there is a key (or pad) and another passphrase. It is still uncrackable even if a possible attacker managed to obtain the cipher text and key because truly random keys work as buffer, which means there is no way to guess the passphrase and break the code.
 
-To use this tool, please execute bullet.py script.
+It works like this. Each byte is encrypted using this algorithm (a is plaintext, b is the pad, c is psedu-random number generated with a seed from the passphrase, and the number 10 is just an example result)
+
+a+b-c=10
+
+Suppose a possible attacker gained the key (b), and encrypted byte (10). If he does not know the pseudo random number (c), still anything is possible for the plaintext.
+
+This means if he/she know 10 and the value of b-c, he/she has no way to know a.
 
 Hope you enjoy it
 
