@@ -6,6 +6,8 @@ Silver Bullet Encryption Tool is an uncrackable encryption Tool based on one-tim
 
 It contains true random number generator which makes data corruptions intentionally with several threads to make true randomness.
 
+From ver. 2.0, Silver Bullet Encryption Tool started to use three dimensional encryption scheme. It means there is a key (or pad) and another passphrase. It is still uncrackable even if a possible attacker managed to obtain the cipher text and key because truly random keys work as buffer, which means there is no way to guess the passphrase and break the code.
+
 To use this tool, please execute bullet.py script.
 
 Hope you enjoy it
