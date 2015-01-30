@@ -3,8 +3,8 @@ import random
 
 
 
-end=256
-ascii_buffer=256
+the_number=256
+
 
 
 def encrypt(user_input, passphrase):
@@ -24,13 +24,13 @@ def encrypt(user_input, passphrase):
     for element in raw_list:
         key_value=propellant.propellant()
 
-        key_gen=key_value%end
+        key_gen=key_value%the_number
         encrypted=element+key_gen
-        acceptable=encrypted%end
+        acceptable=encrypted%the_number
 
-        key.append(chr(key_gen+ascii_buffer-random.randrange(ascii_buffer)))
+        key.append(chr(key_gen+the_number-random.randrange(the_number)))
 
-        filtred.append(chr(acceptable+ascii_buffer))
+        filtred.append(chr(acceptable+the_number))
 
 
     finished_string=''.join(filtred)
@@ -67,10 +67,10 @@ def decrypt (encrypted_string, key, passphrase):
 
 
     for element in encrypted_list:
-        string.append(ord(element)-ascii_buffer)
+        string.append(ord(element)-the_number)
 
     for element in key_list:
-        key.append(ord(element)-ascii_buffer+random.randrange(ascii_buffer))
+        key.append(ord(element)-the_number+random.randrange(the_number))
 
 
     decrypted_list=[]
@@ -81,7 +81,7 @@ def decrypt (encrypted_string, key, passphrase):
         if decrypted_element>=0:
             decrypted_list.append(decrypted_element)
         else:
-            final=decrypted_element+end
+            final=decrypted_element+the_number
             decrypted_list.append(final)
 
     byted=bytes(decrypted_list)
