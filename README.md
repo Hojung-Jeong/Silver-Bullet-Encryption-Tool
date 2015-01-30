@@ -10,11 +10,11 @@ From ver. 2.0, Silver Bullet Encryption Tool started to use three dimensional en
 
 It works like this. Each byte is encrypted using this algorithm (a is plaintext, b is the pad, c is psedu-random number generated with a seed from the passphrase, and the number 10 is just an example result)
 
-a+b-c=10
+A+B-C=10
 
-Suppose a possible attacker gained the value of the communicated key (b-c), and encrypted byte (10). If he does not know the pseudo random number (c), still anything is possible for the plaintext.
+Suppose a possible attacker gained the value of the communicated key (B-C), and encrypted byte (10). If he does not know the pseudo random number (C), still anything is possible for the plaintext.
 
-This means if he/she know 10 and the value of b-c, he/she has no way to know a.
+This means if he/she know 10 and the value of B-C, he/she has no way to know the value of A.
 
 Hope you enjoy it
 
