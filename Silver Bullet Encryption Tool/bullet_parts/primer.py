@@ -1,14 +1,21 @@
 import propellant
+import random
 
 
 
 end=256
-ascii_buffer=161
+ascii_buffer=256
 
 
-def encrypt(user_input):
+def encrypt(user_input, passphrase):
     encoded=user_input.encode()
     raw_list=list(encoded)
+
+    encoded_pass=passphrase.encode()
+    passlist=list(encoded_pass)
+    seed=int(''.join(map(str, passlist)))
+
+    random.seed(seed)
 
     filtred=[]
     key=[]
@@ -21,7 +28,7 @@ def encrypt(user_input):
         encrypted=element+key_gen
         acceptable=encrypted%end
 
-        key.append(chr(key_gen+ascii_buffer))
+        key.append(chr(key_gen+ascii_buffer-random.randrange(ascii_buffer)))
 
         filtred.append(chr(acceptable+ascii_buffer))
 
@@ -38,7 +45,13 @@ def encrypt(user_input):
 
 
 
-def decrypt (encrypted_string, key):
+
+
+
+
+
+
+def decrypt (encrypted_string, key, passphrase):
 
     encrypted_list=list(encrypted_string)
     key_list=list(key)
@@ -46,12 +59,18 @@ def decrypt (encrypted_string, key):
     string=[]
     key=[]
 
+    encoded_pass=passphrase.encode()
+    passlist=list(encoded_pass)
+    seed=int(''.join(map(str, passlist)))
+
+    random.seed(seed)
+
 
     for element in encrypted_list:
         string.append(ord(element)-ascii_buffer)
 
     for element in key_list:
-        key.append(ord(element)-ascii_buffer)
+        key.append(ord(element)-ascii_buffer+random.randrange(ascii_buffer))
 
 
     decrypted_list=[]
@@ -69,10 +88,3 @@ def decrypt (encrypted_string, key):
     decoded=byted.decode()
 
     return decoded
-
-
-
-
-
-
-

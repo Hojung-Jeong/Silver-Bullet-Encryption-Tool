@@ -70,8 +70,9 @@ def operation(command):
     if command=='e':
         try:
             user_input=input('\n\n\nEnter the string you want to encrypt: ')
+            passphrase=input('Enter a passphrase: ')
         
-            string, key = primer.encrypt(user_input)
+            string, key = primer.encrypt(user_input, passphrase)
 
             print('\n\n\nThe encrypted string is:\n'+string)
             print('\nThe key is:\n'+key+'\n\n')
@@ -93,10 +94,11 @@ def operation(command):
         try:
             encrypted_string=input('\n\n\nEnter the  string you want to decrypt: ')
             key=input('Enter the key for the string: ')
+            passphrase=input('Enter the passphrase for the string: ')
 
             if len(encrypted_string)==len(key):
 
-                decrypted=primer.decrypt(encrypted_string, key)
+                decrypted=primer.decrypt(encrypted_string, key, passphrase)
 
                 print('\n\n\nThe decrypted string is\n===> '+decrypted+'\n\n')
 
@@ -120,6 +122,7 @@ def operation(command):
     elif command=='ef':
         try:
             name=input('\n\n\nCopy the file you want to encrypt to the directory bullet.py exists,\nand enter the name of your file: ')
+            passphrase=input('Enter the passphrase for the file to encrypt: ')
             reader = open (name, 'r').read()
 
             dirname, extension = os.path.splitext(name)
@@ -141,7 +144,7 @@ def operation(command):
                 os.makedirs(dirname)
 
 
-            string, key = primer.encrypt(reader)
+            string, key = primer.encrypt(reader, passphrase)
 
 
             with open (dirname+'/Encrypted.txt', 'w') as opener:
@@ -179,11 +182,12 @@ def operation(command):
     elif command=='df':
         try:
             dirname=input('\n\nEnter the name of the directory encrypted file and key file are in: ')
+            passphrase=input('Enter the passphrase for the encrypted file: ')
             string=open(dirname+'/Encrypted.txt', 'r').read()
             key=open(dirname+'/Key.txt', 'r').read()
             extension=open(dirname+'/.Extension.info', 'r').read()
 
-            decrypted=primer.decrypt(string, key)
+            decrypted=primer.decrypt(string, key, passphrase)
 
             with open(dirname+'/Decrypted.'+extension, 'w') as opener:
                 opener.write(decrypted)
@@ -196,7 +200,7 @@ def operation(command):
             operation(command)
 
         except:
-            print('Make sure that Encrypted.txt and Key.txt are in the given directory\nOr check whether you typed the correct directory name')
+            print('\nMake sure that Encrypted.txt and Key.txt are in the given directory\nOr check whether you typed the correct directory name\nOr please check your passphrase')
             operation('df')
 
 
