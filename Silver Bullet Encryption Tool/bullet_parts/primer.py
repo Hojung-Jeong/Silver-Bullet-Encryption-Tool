@@ -4,7 +4,7 @@ import random
 
 
 end=256
-ascii_buffer=256
+ascii_buffer=417
 
 
 def encrypt(user_input, passphrase):
