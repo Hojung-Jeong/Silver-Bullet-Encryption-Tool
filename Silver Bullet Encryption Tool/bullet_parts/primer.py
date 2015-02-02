@@ -3,37 +3,37 @@ import random
 
 
 
+
 end=256
-ascii_buffer=931
+sudo=256
+ascii_buffer=161
+
 
 
 def encrypt(user_input, passphrase):
-    encoded=user_input.encode()
-    raw_list=list(encoded)
+    ui_encoded=user_input.encode()
+    ui_listed=list(ui_encoded)
 
-    encoded_pass=passphrase.encode()
-    passlist=list(encoded_pass)
-    seed=int(''.join(map(str, passlist)))
+    pp_encoded=passphrase.encode()
+    pp_listed=list(pp_encoded)
+    seed=int(''.join(map(str, pp_listed)))
 
     random.seed(seed)
 
-    filtred=[]
+    encrypted=[]
     key=[]
 
+    for element in ui_listed:
+        raw_key=propellant.propellant()%end
 
-    for element in raw_list:
-        key_value=propellant.propellant()
+        ciphered=(element+raw_key)%end
+        pkey=raw_key*random.randrange(sudo)
 
-        key_gen=key_value%end
-        encrypted=element+key_gen
-        acceptable=encrypted%end
-
-        key.append(chr(key_gen+ascii_buffer-random.randrange(ascii_buffer)))
-
-        filtred.append(chr(acceptable+ascii_buffer))
+        encrypted.append(chr(ciphered+ascii_buffer))
+        key.append(chr(pkey+ascii_buffer))
 
 
-    finished_string=''.join(filtred)
+    finished_string=''.join(encrypted)
     finished_key=''.join(key)
 
     return (finished_string, finished_key)
@@ -45,32 +45,24 @@ def encrypt(user_input, passphrase):
 
 
 
+def decrypt(encrypted_string, key, passphrase):
+    listed_string=list(encrypted_string)
+    listed_key=list(key)
 
+    pp_encoded=passphrase.encode()
+    pp_listed=list(pp_encoded)
+    seed=int(''.join(map(str, pp_listed)))
 
-
-
-
-
-def decrypt (encrypted_string, key, passphrase):
-
-    encrypted_list=list(encrypted_string)
-    key_list=list(key)
+    random.seed(seed)
 
     string=[]
     key=[]
 
-    encoded_pass=passphrase.encode()
-    passlist=list(encoded_pass)
-    seed=int(''.join(map(str, passlist)))
-
-    random.seed(seed)
-
-
-    for element in encrypted_list:
+    for element in listed_string:
         string.append(ord(element)-ascii_buffer)
 
-    for element in key_list:
-        key.append(ord(element)-ascii_buffer+random.randrange(ascii_buffer))
+    for element in listed_key:
+        key.append(int(round(ord(element)-ascii_buffer)/random.randrange(sudo)))
 
 
     decrypted_list=[]
