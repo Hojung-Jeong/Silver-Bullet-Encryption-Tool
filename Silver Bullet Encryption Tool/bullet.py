@@ -5,6 +5,7 @@ import sys
 sys.path.append('bullet_parts')
 import primer
 import os
+import getpass
 
 
 print('''Silver Bullet Encryption Tool
@@ -70,7 +71,7 @@ def operation(command):
     if command=='e':
         try:
             user_input=input('\n\n\nEnter the string you want to encrypt: ')
-            passphrase=input('Enter a passphrase: ')
+            passphrase=getpass.getpass('Enter a passphrase: ')
         
             string, key = primer.encrypt(user_input, passphrase)
 
@@ -94,7 +95,7 @@ def operation(command):
         try:
             encrypted_string=input('\n\n\nEnter the  string you want to decrypt: ')
             key=input('Enter the key for the string: ')
-            passphrase=input('Enter the passphrase for the encrypted string: ')
+            passphrase=getpass.getpass('Enter the passphrase for the encrypted string: ')
 
             if len(encrypted_string)==len(key):
 
@@ -122,7 +123,7 @@ def operation(command):
     elif command=='ef':
         try:
             name=input('\n\n\nCopy the file you want to encrypt to the directory bullet.py exists,\nand enter the name of your file: ')
-            passphrase=input('Enter a passphrase for the file to encrypt: ')
+            passphrase=getpass.getpass('Enter a passphrase for the file to encrypt: ')
             reader = open (name, 'r').read()
 
             dirname, extension = os.path.splitext(name)
@@ -182,7 +183,7 @@ def operation(command):
     elif command=='df':
         try:
             dirname=input('\n\nEnter the name of the directory encrypted file and key file are in: ')
-            passphrase=input('Enter the passphrase for the encrypted file: ')
+            passphrase=getpass.getpass('Enter the passphrase for the encrypted file: ')
             string=open(dirname+'/Encrypted.txt', 'r').read()
             key=open(dirname+'/Key.txt', 'r').read()
             extension=open(dirname+'/.Extension.info', 'r').read()
