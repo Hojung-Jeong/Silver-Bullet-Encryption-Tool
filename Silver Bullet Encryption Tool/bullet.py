@@ -55,7 +55,7 @@ and Key.txt contains the key for the encrypted file.
 NOTE THAT IT IS RECOMMENDED AGAINST TO CHANGE THE FILE NAME.
 '''
 
-
+separator=' '
 
 
 command=input(ask)
@@ -98,8 +98,8 @@ def operation(command):
             passphrase=getpass.getpass('Enter the passphrase for the encrypted string: ')
 
 
-            check_string=encrypted_string.split('y')
-            check_key=key.split('y')
+            check_string=encrypted_string.split(separator)
+            check_key=key.split(separator)
 
             if len(check_string)==len(check_key):
 

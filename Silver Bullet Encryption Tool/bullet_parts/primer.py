@@ -6,6 +6,7 @@ import random
 
 end=256
 sudo=256
+separator=' '
 
 
 
@@ -29,9 +30,9 @@ def encrypt(user_input, passphrase):
         pkey=raw_key*random.randrange(sudo)
 
         encrypted.append(str(ciphered))
-        encrypted.append('y')
+        encrypted.append(separator)
         key.append(str(pkey))
-        key.append('y')
+        key.append(separator)
 
 
     encrypted.pop()
@@ -50,8 +51,8 @@ def encrypt(user_input, passphrase):
 
 
 def decrypt(encrypted_string, key, passphrase):
-    listed_string=encrypted_string.split('y')
-    listed_key=key.split('y')
+    listed_string=encrypted_string.split(separator)
+    listed_key=key.split(separator)
 
     pp_encoded=passphrase.encode()
     pp_listed=list(pp_encoded)
