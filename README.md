@@ -2,7 +2,7 @@ Silver-Bullet-Encryption-Tool
 =============================
 The only bullet that survives the hardship
 
-Silver Bullet Encryption Tool is an uncrackable encryption Tool based on one-time pad model.
+Silver Bullet Encryption Tool is an uncrackable encryption Tool implementing three dimensional encryption scheme
 
 It contains true random number generator which makes data corruptions intentionally with several threads to make true randomness.
 
@@ -12,11 +12,11 @@ Here is a simple description about how it works
 
 Ex.) X + Y =10
 
-2) Then, it encrypts the key with a stream of pseudo-random numbers seeded by the passphrase. Even if an attacker managed to get the key (the value of X * Z), there is no way to guess the value of Z because the value of Y is truly random. Simply Random Number times Predictable Number is still random.
+2) Then, it encrypts the key with a stream of pseudo-random numbers seeded by the passphrase. Even if an attacker managed to get the encrypted key (the value of X * Z), there is no way to guess the value of Z because the value of Y is truly random. Simply Random Number times Predictable Number is still random.
 
 Y * Z
 
-3) Now, there is a cipher text, key, and passphrase. It is uncrackable because a possible attacker should know the passphrase to crack it but there is no way to guess the value of X because of the random buffer Y.
+3) Now, there is a cipher text, key, and passphrase. It is uncrackable because there is no way to guess the value of X thanks to the random buffer Y.
 
 
 In summary,
@@ -25,11 +25,7 @@ X + Y = 10
 
 Y * Z = 7
 
-Even if I say the value of Z * Y is 7, there is o way to guess the value of X because of the unpredictable nature of the value Y.
-
-
-ACKNOWLEDGEMENT
-There was an error in the explanation of how it works in ver. 3.0, and did not protect the passphrase properly.
+Even if I say the value of Z * Y is 7, there is no way to guess the value of X because of the unpredictable nature of the value Y.
 
 
 Hope you enjoy it
