@@ -97,7 +97,11 @@ def operation(command):
             key=input('Enter the key for the string: ')
             passphrase=getpass.getpass('Enter the passphrase for the encrypted string: ')
 
-            if len(encrypted_string)==len(key):
+
+            check_string=encrypted_string.split('y')
+            check_key=key.split('y')
+
+            if len(check_string)==len(check_key):
 
                 decrypted=primer.decrypt(encrypted_string, key, passphrase)
 

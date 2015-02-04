@@ -6,7 +6,6 @@ import random
 
 end=256
 sudo=256
-ascii_buffer=161
 
 
 
@@ -29,9 +28,14 @@ def encrypt(user_input, passphrase):
         ciphered=(element+raw_key)%end
         pkey=raw_key*random.randrange(sudo)
 
-        encrypted.append(chr(ciphered+ascii_buffer))
-        key.append(chr(pkey+ascii_buffer))
+        encrypted.append(str(ciphered))
+        encrypted.append('y')
+        key.append(str(pkey))
+        key.append('y')
 
+
+    encrypted.pop()
+    key.pop()
 
     finished_string=''.join(encrypted)
     finished_key=''.join(key)
@@ -46,8 +50,8 @@ def encrypt(user_input, passphrase):
 
 
 def decrypt(encrypted_string, key, passphrase):
-    listed_string=list(encrypted_string)
-    listed_key=list(key)
+    listed_string=encrypted_string.split('y')
+    listed_key=key.split('y')
 
     pp_encoded=passphrase.encode()
     pp_listed=list(pp_encoded)
@@ -59,10 +63,10 @@ def decrypt(encrypted_string, key, passphrase):
     key=[]
 
     for element in listed_string:
-        string.append(ord(element)-ascii_buffer)
+        string.append(int(element))
 
     for element in listed_key:
-        key.append(int(round(ord(element)-ascii_buffer)/random.randrange(sudo)))
+        key.append(int(round(int(element)/random.randrange(sudo))))
 
 
     decrypted_list=[]
