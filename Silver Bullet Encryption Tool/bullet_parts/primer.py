@@ -14,11 +14,7 @@ def encrypt(user_input, passphrase):
     ui_encoded=user_input.encode()
     ui_listed=list(ui_encoded)
 
-    pp_encoded=passphrase.encode()
-    pp_listed=list(pp_encoded)
-    seed=int(''.join(map(str, pp_listed)))
-
-    random.seed(seed)
+    random.seed(passphrase)
 
     encrypted=[]
     key=[]
@@ -54,11 +50,7 @@ def decrypt(encrypted_string, key, passphrase):
     listed_string=encrypted_string.split(separator)
     listed_key=key.split(separator)
 
-    pp_encoded=passphrase.encode()
-    pp_listed=list(pp_encoded)
-    seed=int(''.join(map(str, pp_listed)))
-
-    random.seed(seed)
+    random.seed(passphrase)
 
     string=[]
     key=[]
