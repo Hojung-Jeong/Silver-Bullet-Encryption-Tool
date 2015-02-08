@@ -1,79 +1,104 @@
 import propellant
 import random
+import zlib
 
-
-
-
-end=256
-sudo=256
-separator=' '
 
 
 
 def encrypt(user_input, passphrase):
-    ui_encoded=user_input.encode()
-    ui_listed=list(ui_encoded)
 
-    random.seed(passphrase)
+    compressed=zlib.compress(user_input.encode())
 
-    encrypted=[]
-    key=[]
+    ui_numbered=int.from_bytes(compressed, byteorder='big', signed=False)
 
-    for element in ui_listed:
-        raw_key=propellant.propellant()%end
+    #==============================
 
-        ciphered=(element+raw_key)%end
-        pkey=raw_key*random.randrange(sudo)
+    pad=propellant.propellant()
 
-        encrypted.append(str(ciphered))
-        encrypted.append(separator)
-        key.append(str(pkey))
-        key.append(separator)
+    counter=0
 
+    while ui_numbered>pad:
+        another=propellant.propellant()
 
-    encrypted.pop()
-    key.pop()
-
-    finished_string=''.join(encrypted)
-    finished_key=''.join(key)
-
-    return (finished_string, finished_key)
-
-
-
-
-
-
-
-
-def decrypt(encrypted_string, key, passphrase):
-    listed_string=encrypted_string.split(separator)
-    listed_key=key.split(separator)
-
-    random.seed(passphrase)
-
-    string=[]
-    key=[]
-
-    for element in listed_string:
-        string.append(int(element))
-
-    for element in listed_key:
-        key.append(int(round(int(element)/random.randrange(sudo))))
-
-
-    decrypted_list=[]
-
-    for index in range(len(string)):
-        decrypted_element=string[index]-key[index]
-
-        if decrypted_element>=0:
-            decrypted_list.append(decrypted_element)
+        if another is not 0 and counter%2 is 0:
+            pad*=another
+        elif another is not 0 and counter%2 is 1:
+            pad+=another
         else:
-            final=decrypted_element+end
-            decrypted_list.append(final)
+            pass
 
-    byted=bytes(decrypted_list)
-    decoded=byted.decode()
+        counter+=1
 
-    return decoded
+
+    cipher_text=ui_numbered^pad
+
+    #==============================
+
+    random.seed(passphrase)
+
+    locker=random.randrange(cipher_text)
+
+    counter=0
+
+    while cipher_text>locker:
+        another=random.randrange(cipher_text)
+
+        if another is not 0 and counter%2 is 0:
+            locker*=another
+        elif another is not 0 and counter%2 is 1:
+            locker+=another
+        else:
+            pass
+
+        counter+=1
+
+    locked_pad=pad^locker
+
+    return (str(cipher_text), str(locked_pad))
+
+
+
+
+
+
+
+
+
+
+
+
+
+def decrypt(cipher_text, locked_pad, passphrase):
+
+    cipher_text=int(cipher_text)
+    locked_pad=int(locked_pad)
+
+    random.seed(passphrase)
+
+    locker=random.randrange(cipher_text)
+
+    counter=0
+
+    while cipher_text>locker:
+        another=random.randrange(cipher_text)
+
+        if another is not 0 and counter%2 is 0:
+            locker*=another
+        elif another is not 0 and counter%2 is 1:
+            locker+=another
+        else:
+            pass
+
+        counter+=1
+
+    pad=locked_pad^locker
+
+    #========================
+
+    deciphered=cipher_text^pad
+
+    byted=deciphered.to_bytes((deciphered.bit_length()+7)//8, 'big')
+
+    decompressed=zlib.decompress(byted).decode()
+
+    return decompressed
