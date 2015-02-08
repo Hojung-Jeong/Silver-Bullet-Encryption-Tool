@@ -15,19 +15,15 @@ def encrypt(user_input, passphrase):
 
     pad=propellant.propellant()
 
-    counter=0
-
     while ui_numbered>pad:
         another=propellant.propellant()
 
-        if another is not 0 and counter%2 is 0:
+        if another is not 0 and another%2 is 0:
             pad*=another
-        elif another is not 0 and counter%2 is 1:
+        elif another is not 0 and another%2 is 1:
             pad+=another
         else:
             pass
-
-        counter+=1
 
 
     cipher_text=ui_numbered^pad
@@ -38,19 +34,16 @@ def encrypt(user_input, passphrase):
 
     locker=random.randrange(cipher_text)
 
-    counter=0
-
     while cipher_text>locker:
         another=random.randrange(cipher_text)
 
-        if another is not 0 and counter%2 is 0:
+        if another is not 0 and another%2 is 0:
             locker*=another
-        elif another is not 0 and counter%2 is 1:
+        elif another is not 0 and another%2 is 1:
             locker+=another
         else:
             pass
 
-        counter+=1
 
     locked_pad=pad^locker
 
@@ -77,19 +70,16 @@ def decrypt(cipher_text, locked_pad, passphrase):
 
     locker=random.randrange(cipher_text)
 
-    counter=0
-
     while cipher_text>locker:
         another=random.randrange(cipher_text)
 
-        if another is not 0 and counter%2 is 0:
+        if another is not 0 and another%2 is 0:
             locker*=another
-        elif another is not 0 and counter%2 is 1:
+        elif another is not 0 and another%2 is 1:
             locker+=another
         else:
             pass
-
-        counter+=1
+            
 
     pad=locked_pad^locker
 
