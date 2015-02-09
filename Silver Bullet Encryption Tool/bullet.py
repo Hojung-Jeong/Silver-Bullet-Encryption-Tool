@@ -55,7 +55,6 @@ and Key.txt contains the key for the encrypted file.
 NOTE THAT IT IS RECOMMENDED AGAINST TO CHANGE THE FILE NAME.
 '''
 
-separator=' '
 
 
 command=input(ask)
@@ -73,10 +72,10 @@ def operation(command):
             user_input=input('\n\n\nEnter the string you want to encrypt: ')
             passphrase=getpass.getpass('Enter a passphrase: ')
         
-            string, key = primer.encrypt(user_input, passphrase)
+            string, locked_pad = primer.encrypt(user_input, passphrase)
 
             print('\n\n\nThe encrypted string is:\n'+string)
-            print('\nThe key is:\n'+key+'\n\n')
+            print('\nThe pad is:\n'+locked_pad+'\n\n')
 
 
             input('Operation finished! Please hit enter to go ahead')
@@ -94,27 +93,18 @@ def operation(command):
     elif command=='d':
         try:
             encrypted_string=input('\n\n\nEnter the  string you want to decrypt: ')
-            key=input('Enter the key for the string: ')
+            key=input('Enter the pad for the string: ')
             passphrase=getpass.getpass('Enter the passphrase for the encrypted string: ')
 
+            decrypted=primer.decrypt(encrypted_string, key, passphrase)
 
-            check_string=encrypted_string.split(separator)
-            check_key=key.split(separator)
+            print('\n\n\nThe decrypted string is\n===> '+decrypted+'\n\n')
 
-            if len(check_string)==len(check_key):
+            input('Operation finished! Please hit enter to go ahead')
+            command=input(ask)
+            command=command.strip()
+            operation(command)
 
-                decrypted=primer.decrypt(encrypted_string, key, passphrase)
-
-                print('\n\n\nThe decrypted string is\n===> '+decrypted+'\n\n')
-
-
-                input('Operation finished! Please hit enter to go ahead')
-                command=input(ask)
-                command=command.strip()
-                operation(command)
-            else:
-                print('Enter a valid key')
-                operation('d')
         except:
             print('Oops! There was an unexpected error')
 
@@ -155,7 +145,7 @@ def operation(command):
             with open (dirname+'/Encrypted.txt', 'w') as opener:
                 opener.write(string)
 
-            with open (dirname+'/Key.txt', 'w') as opener:
+            with open (dirname+'/Pad.txt', 'w') as opener:
                 opener.write(key)
 
             with open (dirname+'/README.txt', 'w') as opener:
@@ -189,7 +179,7 @@ def operation(command):
             dirname=input('\n\nEnter the name of the directory encrypted file and key file are in: ')
             passphrase=getpass.getpass('Enter the passphrase for the encrypted file: ')
             string=open(dirname+'/Encrypted.txt', 'r').read()
-            key=open(dirname+'/Key.txt', 'r').read()
+            key=open(dirname+'/Pad.txt', 'r').read()
             extension=open(dirname+'/.Extension.info', 'r').read()
 
             decrypted=primer.decrypt(string, key, passphrase)
