@@ -45,7 +45,7 @@ def encrypt(user_input, passphrase):
             pass
 
 
-    locked_pad=pad^locker
+    locked_pad=pad+locker
 
     return (str(cipher_text), str(locked_pad))
 
@@ -81,7 +81,7 @@ def decrypt(cipher_text, locked_pad, passphrase):
             pass
             
 
-    pad=locked_pad^locker
+    pad=locked_pad-locker
 
     #========================
 
