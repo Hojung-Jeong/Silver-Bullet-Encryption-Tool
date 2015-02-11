@@ -14,7 +14,7 @@ First, there is an integer A which is basically the plain text. Then do XOR gate
 
 A ^ B = 100
 
-Second, add pseudo-random number, C, seeded by the passphrase to the value of B. The reason C is added to B instead of do another XOR operation is to preven Crib-Dragging attack. 
+Second, add pseudo-random number, C, seeded by the passphrase to the value of B. The reason C is added to B instead of doing another XOR operation is to preven Crib-Dragging attack. 
 
 Suppose the result is 49.
 
