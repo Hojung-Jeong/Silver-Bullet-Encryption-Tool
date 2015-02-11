@@ -14,9 +14,11 @@ First, there is an integer A which is basically the plain text. Then do XOR gate
 
 A ^ B = 100
 
-Second, do another XOR gate operation on B with pseudo-random number, C, seeded by the passphrase. Suppose the result is 49.
+Second, add pseudo-random number, C, seeded by the passphrase to the value of B. The reason C is added to B instead of do another XOR operation is to preven Crib-Dragging attack. 
 
-B ^ C = 49
+Suppose the result is 49.
+
+B + C = 49
 
 Now, the value of B ^ C, 49 is totally useless to decrypt A ^ B because it is DIFFERENT from the pad which encrypted the string A.
 
