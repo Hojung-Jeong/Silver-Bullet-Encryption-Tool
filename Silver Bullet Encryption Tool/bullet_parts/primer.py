@@ -35,14 +35,9 @@ def encrypt(user_input, passphrase):
     locker=random.randrange(cipher_text)
 
     while cipher_text>locker:
-        another=random.randrange(cipher_text)
 
-        if another is not 0 and another%2 is 0:
-            locker*=another
-        elif another is not 0 and another%2 is 1:
-            locker+=another
-        else:
-            pass
+        another=random.randrange(cipher_text)
+        locker+=another
 
 
     locked_pad=pad+locker
@@ -72,13 +67,7 @@ def decrypt(cipher_text, locked_pad, passphrase):
 
     while cipher_text>locker:
         another=random.randrange(cipher_text)
-
-        if another is not 0 and another%2 is 0:
-            locker*=another
-        elif another is not 0 and another%2 is 1:
-            locker+=another
-        else:
-            pass
+        locker+=another
             
 
     pad=locked_pad-locker
