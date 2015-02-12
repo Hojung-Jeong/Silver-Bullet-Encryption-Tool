@@ -35,7 +35,6 @@ def encrypt(user_input, passphrase):
     locker=random.randrange(cipher_text)
 
     while cipher_text>locker:
-
         another=random.randrange(cipher_text)
         locker+=another
 
