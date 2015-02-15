@@ -1,7 +1,7 @@
-import propellant
 import random
 import zlib
 
+from bullet_parts import propellant
 
 
 

@@ -2,10 +2,10 @@
 #-*-coding:utf-8-*-
 
 import sys
-sys.path.append('bullet_parts')
-import primer
 import os
 import getpass
+
+from bullet_parts import primer
 
 
 print('''Silver Bullet Encryption Tool
