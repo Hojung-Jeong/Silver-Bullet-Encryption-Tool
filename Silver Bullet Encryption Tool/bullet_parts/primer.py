@@ -13,17 +13,11 @@ def encrypt(user_input, passphrase):
 
     #==============================
 
-    pad=propellant.propellant()
+    pad=0
 
-    while ui_numbered>pad:
-        another=propellant.propellant()
-
-        if another is not 0 and another%2 is 0:
-            pad*=another
-        elif another is not 0 and another%2 is 1:
-            pad+=another
-        else:
-            pass
+    while pad<ui_numbered:
+        random.seed(propellant.propellant())
+        pad+=random.randrange(ui_numbered)
 
 
     cipher_text=ui_numbered^pad
