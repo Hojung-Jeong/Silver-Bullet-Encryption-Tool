@@ -19,6 +19,10 @@ def encrypt(user_input, passphrase):
         random.seed(propellant.propellant())
         pad+=random.randrange(ui_numbered)
 
+        desolved_pad=list(str(pad))
+        random.seed(propellant.propellant())
+        random.shuffle(desolved_pad)
+        pad=int(''.join(desolved_pad))
 
     cipher_text=ui_numbered^pad
 
@@ -32,6 +36,9 @@ def encrypt(user_input, passphrase):
         another=random.randrange(cipher_text)
         locker+=another
 
+        desolved_locker=list(str(locker))
+        random.shuffle(desolved_locker)
+        locker=int(''.join(desolved_locker))
 
     locked_pad=pad+locker
 
@@ -61,7 +68,11 @@ def decrypt(cipher_text, locked_pad, passphrase):
     while cipher_text>locker:
         another=random.randrange(cipher_text)
         locker+=another
-            
+
+        desolved_locker=list(str(locker))
+        random.shuffle(desolved_locker)
+        locker=int(''.join(desolved_locker))
+
 
     pad=locked_pad-locker
 
