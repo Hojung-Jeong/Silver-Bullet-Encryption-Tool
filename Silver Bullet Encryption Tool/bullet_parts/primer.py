@@ -1,11 +1,16 @@
 import random
 import zlib
+import sys
 
 from bullet_parts import propellant
 
 
 
-def encrypt(user_input, passphrase):
+max_size=10000
+
+
+
+def encrypt_core(user_input, passphrase):
 
     compressed=zlib.compress(user_input.encode())
 
@@ -49,14 +54,7 @@ def encrypt(user_input, passphrase):
 
 
 
-
-
-
-
-
-
-
-def decrypt(cipher_text, locked_pad, passphrase):
+def decrypt_core(cipher_text, locked_pad, passphrase):
 
     cipher_text=int(cipher_text)
     locked_pad=int(locked_pad)
@@ -85,3 +83,58 @@ def decrypt(cipher_text, locked_pad, passphrase):
     decompressed=zlib.decompress(byted).decode()
 
     return decompressed
+
+
+
+
+
+
+
+
+def encrypt(user_input, passphrase):
+
+	check=sys.getsizeof(user_input)
+
+	if check<=max_size:
+		cipher_text, locked_pad = encrypt_core(user_input, passphrase)
+		return (cipher_text, locked_pad)
+	
+	else:
+		#==================
+		chunks=[user_input[unit:unit+max_size] for unit in range(0, len(user_input), max_size)]
+		string_holder=[]
+		pad_holder=[]
+
+		for data in chunks:
+			cipher_text, locked_pad = encrypt_core(data, passphrase)
+			string_holder.append(cipher_text)
+			pad_holder.append(locked_pad)
+
+		cipher_text=' '.join(string_holder)
+		locked_pad=' '.join(pad_holder)
+
+		return (cipher_text, locked_pad)
+
+
+
+
+
+def decrypt(cipher_text, locked_pad, passphrase):
+
+	cipher_text_list=cipher_text.split(' ')
+	locked_pad_list=locked_pad.split(' ')
+
+	if len(cipher_text_list)==1 and len(locked_pad_list==1):
+		plain_text=decrypt_core(cipher_text, locked_pad, passphrase)
+		return plain_text
+
+	else:
+		holder=[]
+
+		for element in cipher_text_list:
+			plain_text=decrypt_core(element, locked_pad_list[cipher_text_list.index(element)], passphrase)
+			holder.append(plain_text)
+
+		plain_text=''.join(holder)
+
+		return plain_text
