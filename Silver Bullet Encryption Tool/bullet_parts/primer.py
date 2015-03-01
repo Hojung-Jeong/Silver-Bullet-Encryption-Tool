@@ -124,7 +124,7 @@ def decrypt(cipher_text, locked_pad, passphrase):
 	cipher_text_list=cipher_text.split(' ')
 	locked_pad_list=locked_pad.split(' ')
 
-	if len(cipher_text_list)==1 and len(locked_pad_list==1):
+	if len(cipher_text_list)==1 and len(locked_pad_list)==1:
 		plain_text=decrypt_core(cipher_text, locked_pad, passphrase)
 		return plain_text
 
