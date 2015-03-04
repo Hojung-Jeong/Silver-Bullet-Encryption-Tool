@@ -51,7 +51,7 @@ If you want to quit, type 'q'
 =====>  '''
 
 readme='''Encrypted.txt contains the encrypted string,
-and Key.txt contains the key for the encrypted file.
+and Pad.txt contains the key for the encrypted file.
 NOTE THAT IT IS RECOMMENDED AGAINST TO CHANGE THE FILE NAME.
 '''
 
@@ -89,14 +89,15 @@ def operation(command):
 
 
 
+
     #Simple input decryption
     elif command=='d':
         try:
             encrypted_string=input('\n\n\nEnter the  string you want to decrypt: ')
-            key=input('Enter the pad for the string: ')
+            pad=input('Enter the pad for the string: ')
             passphrase=getpass.getpass('Enter the passphrase for the encrypted string: ')
 
-            decrypted=primer.decrypt(encrypted_string, key, passphrase)
+            decrypted=primer.decrypt(encrypted_string, pad, passphrase)
 
             print('\n\n\nThe decrypted string is\n===> '+decrypted+'\n\n')
 
@@ -139,14 +140,14 @@ def operation(command):
                 os.makedirs(dirname)
 
 
-            string, key = primer.encrypt(reader, passphrase)
+            string, pad = primer.encrypt(reader, passphrase)
 
 
             with open (dirname+'/Encrypted.txt', 'w') as opener:
                 opener.write(string)
 
             with open (dirname+'/Pad.txt', 'w') as opener:
-                opener.write(key)
+                opener.write(pad)
 
             with open (dirname+'/README.txt', 'w') as opener:
                 opener.write(readme)
@@ -179,10 +180,10 @@ def operation(command):
             dirname=input('\n\nEnter the name of the directory encrypted file and key file are in: ')
             passphrase=getpass.getpass('Enter the passphrase for the encrypted file: ')
             string=open(dirname+'/Encrypted.txt', 'r').read()
-            key=open(dirname+'/Pad.txt', 'r').read()
+            pad=open(dirname+'/Pad.txt', 'r').read()
             extension=open(dirname+'/.Extension.info', 'r').read()
 
-            decrypted=primer.decrypt(string, key, passphrase)
+            decrypted=primer.decrypt(string, pad, passphrase)
 
             with open(dirname+'/Decrypted.'+extension, 'w') as opener:
                 opener.write(decrypted)
@@ -195,7 +196,7 @@ def operation(command):
             operation(command)
 
         except:
-            print('\nMake sure that Encrypted.txt and Key.txt are in the given directory\nOr check whether you typed the correct directory name\nOr please check your passphrase')
+            print('\nMake sure that Encrypted.txt and Pad.txt are in the given directory\nOr check whether you typed the correct directory name\nOr please check your passphrase')
             operation('df')
 
 

@@ -12,11 +12,13 @@ max_size=10000
 
 def encrypt_core(user_input, passphrase):
 
-    compressed=zlib.compress(user_input.encode())
+	#Compress user input===========================
 
+    compressed=zlib.compress(user_input.encode())
     ui_numbered=int.from_bytes(compressed, byteorder='big', signed=False)
 
-    #==============================
+
+    #Generate turly random pad and encrypt=========
 
     pad=0
 
@@ -31,7 +33,8 @@ def encrypt_core(user_input, passphrase):
 
     cipher_text=ui_numbered^pad
 
-    #==============================
+
+    #Lock the pad =================================
 
     random.seed(passphrase)
 
@@ -54,7 +57,10 @@ def encrypt_core(user_input, passphrase):
 
 
 
+
 def decrypt_core(cipher_text, locked_pad, passphrase):
+
+	#Unlock the pad ===============================
 
     cipher_text=int(cipher_text)
     locked_pad=int(locked_pad)
@@ -74,7 +80,7 @@ def decrypt_core(cipher_text, locked_pad, passphrase):
 
     pad=locked_pad-locker
 
-    #========================
+    #Decrypt the string ===========================
 
     deciphered=cipher_text^pad
 
@@ -114,6 +120,7 @@ def encrypt(user_input, passphrase):
 		locked_pad=' '.join(pad_holder)
 
 		return (cipher_text, locked_pad)
+
 
 
 
