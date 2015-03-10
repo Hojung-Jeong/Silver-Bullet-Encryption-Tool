@@ -45,7 +45,7 @@ Now, there is two valid one-time pads using the same pad.
 
 It also contains true random number generator which makes data corruptions intentionally with several threads to make true randomness. If several threads (not processes) are executed without lock, they share the same memory resource, which can lead to data corruption and imprecision of the resulting data.
 
-This MSDN article explains how it works
+This MSDN article explains how it works.
 https://msdn.microsoft.com/en-us/magazine/cc163744.aspx
 
 Hope you enjoy it
