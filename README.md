@@ -26,6 +26,7 @@ What is more important is that even if it is now like two-time padding C and A w
 *Crib dragging is one of methods of crypto-analysis attacking multiple-time pads. For example, if the example above was like below,
 
 A + B = 100
+
 B + C = 49
 
 it is now possible to remove the random pad by simple subtracting B + C, 49, from A + B, 100. The result is 
@@ -39,6 +40,7 @@ Now, it is basically a stream cipher which is crackable.
 However, if the encryption was done using A^B, there is no way to peel off or drag out the truly random pad.
 
 A ^ B = 100
+
 B + c = 49
 
 Now, there is two valid one-time pads using the same pad.
