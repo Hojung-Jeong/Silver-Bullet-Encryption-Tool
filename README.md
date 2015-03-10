@@ -82,7 +82,7 @@ Then, let's think about this way.
 
 9x = 0.999...999 x 9
 
-9x = 9.999...991
+9x = 8.999...991
 
 x=0.999...
 
