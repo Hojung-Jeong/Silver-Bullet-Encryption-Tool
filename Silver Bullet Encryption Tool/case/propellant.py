@@ -1,9 +1,12 @@
 from threading import Thread
 
 
+
+#True random number generator core engine =========================================
+
 def generate():
 
-	num_gen='bullet_parts/number.num'
+	num_gen='case/number.num'
 
 
 	def zero():
@@ -51,33 +54,53 @@ def generate():
 
 	def first():
 		thread_1=Thread(target=zero)
-		thread_2=Thread(target=nine)
+		thread_2=Thread(target=four)
+		thread_3=Thread(target=five)
+		thread_4=Thread(target=nine)
 		thread_1.start()
 		thread_2.start()
+		thread_3.start()
+		thread_4.start()
 
 	def second():
 		thread_1=Thread(target=one)
-		thread_2=Thread(target=eight)
+		thread_2=Thread(target=three)
+		thread_3=Thread(target=six)
+		thread_4=Thread(target=eight)
 		thread_1.start()
 		thread_2.start()
+		thread_3.start()
+		thread_4.start()
 
 	def third():
 		thread_1=Thread(target=two)
-		thread_2=Thread(target=seven)
+		thread_2=Thread(target=two)
+		thread_3=Thread(target=seven)
+		thread_4=Thread(target=seven)
 		thread_1.start()
 		thread_2.start()
+		thread_3.start()
+		thread_4.start()
 
 	def fourth():
 		thread_1=Thread(target=three)
-		thread_2=Thread(target=six)
+		thread_2=Thread(target=one)
+		thread_3=Thread(target=eight)
+		thread_4=Thread(target=six)
 		thread_1.start()
 		thread_2.start()
+		thread_3.start()
+		thread_4.start()
 
 	def fifth():
 		thread_1=Thread(target=four)
-		thread_2=Thread(target=five)
+		thread_2=Thread(target=zero)
+		thread_3=Thread(target=nine)
+		thread_4=Thread(target=five)
 		thread_1.start()
 		thread_2.start()
+		thread_3.start()
+		thread_4.start()
 
 	#================================
 
@@ -118,6 +141,9 @@ def generate():
 
 
 
+
+
+#Screening null value =============================================================
 
 def propellant():
 	while  True:
