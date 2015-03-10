@@ -60,15 +60,20 @@ The universe we live in is made up of 12 fundamental particles interacting in 4 
 
 One of them is the sum of geometric sequence. It is, at least mathematically, in the end equals 1. This is the equation saying it is in the end 1
 
-x = 0.999...,
-10x = 9.999...,
-10x - x = 9.999... - 0.999...,
-9x = 9,
+x = 0.999...
+
+10x = 9.999...
+
+10x - x = 9.999... - 0.999...
+
+9x = 9
+
 x = 1
 
 Interesting enough. Then, how about thinking in this way?
 
 x=0.999...
+
 x=0.999...999
 
 It is in the end ...999, and because the 9s in between the two sides (0.999... and ...999) are infinite, it is still same number.
@@ -76,7 +81,9 @@ It is in the end ...999, and because the 9s in between the two sides (0.999... a
 Then, let's think about this way.
 
 9x = 0.999...999 x 9
+
 9x = 9.999...991
+
 x=0.999...
 
 Why the results are different? Still, x in both sides are infinitely recurring 0.9. However, the results are different. 
