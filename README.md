@@ -82,9 +82,9 @@ It is in the end ...999, and because the 9s in between the two sides (0.999... a
 
 Then, let's think about this way.
 
-9x = 0.999...999 x 9
+9x = 0.999...(infinite 9s)...999 x 9
 
-9x = 8.999...991
+9x = 8.999...(infinite 9s)...991
 
 x=0.999...
 
