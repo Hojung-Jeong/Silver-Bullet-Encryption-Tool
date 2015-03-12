@@ -58,10 +58,18 @@ P.S.
 
 In this programme, I created true randomness using a deterministic system. It was possible using imprecisions. I personally believe this is how the physical world we live in works
 
-The universe we live in is made up of 12 fundamental particles interacting in 4 different and predictable ways. However, I found there are several things disobeying this rule
+The universe we live in is made up of 12 fundamental particles interacting in 4 different and predictable ways. In other words, it is somewhat deterministic. However, what if it is not perfectly deterministic?
 
-One of them is the sum of geometric sequence. It is, at least mathematically, in the end equals 1. This is the equation saying it is in the end 1
+In my opinion, there are tiny imprecision in all over the universe which makes truly random phenomena. However, humans have ignored them by saying "0.999... equals 1". Ok, I will firstly crush this false thinking.
 
+What mathematicians say in "0.999... = 1" argument is that 0.000...1 is not a number, so it is basically 1. They will insist with algebra, conversion of fraction, and things like that.
+
+However, if you look closer in it, you will find the core argument is this "This just works, so you (those who think 0.999... does not equal 1) are wrong".
+
+
+Here are some of their arguments.
+####
+1. It just works. See this
 x = 0.999...
 
 10x = 9.999...
@@ -72,32 +80,8 @@ x = 0.999...
 
 x = 1
 
-Interesting enough. Then, how about thinking in this way?
+2. Another proof
+1/3 = 0.333...
+3(1/3) = 3(0.333...)
+1 = 0.999...
 
-x=0.999...
-
-x=0.999...999
-
-It is in the end ...999, and because the 9s in between the two sides (0.999... and ...999) are infinite, it is still same number.
-
-Then, let's think about this way.
-
-9x = 0.999...(infinite 9s)...999 x 9
-
-9x = 8.999...(infinite 9s)...991
-
-x=0.999...
-
-Why the results are different? Still, x in both sides are infinitely recurring 0.9. However, the results are different. 
-
-Then, which side is right? I bet for the latter one because latter one clearly says x equals 0.999..., while the first one say it is either 0.999... or 1, which looks like mathematical imprecision
-
-I think this kind of things taking place on quantum level (which is still theoratical) is how the universe we live in works. In other words, the physical world we live in is built from and upon imprecision. It seems there are some proof supporting this hypothesis
-
-For example, the universe we live in is expanding. It is expanding faster and faster, and it seems that new things are created in every single part of the universe, which means it is expanding like balloons. (This is what cosmologists and physicists have observed) According to my hypothesis, this is because existing particles in the universe we live in always makes imprecision on the rate of 0.000...01 percent. In other words, that imprecision is creating new things.
-
-Then, one of other physical hypothesis should be changed. That is the assumption that the universe we live in is flat. According to conventional theory, it is flat because it is just 1 dimension in the end. However, my hypothesis explains that still there is tiny bit of dimension that we have yet figured out.
-
-It also says the speed of light is not the ultimate speed limit. The ultimate limit is speed of light according to relativity. However, according to my hypothesis, it is extremely slightly faster than it. We just have not figured it out, and in most cases it does not matter because that imprecision is extremely tiny.
-
-My tool utilised this hypothesis. If there is something "Truly random" in deterministic system, it is imprecision. What I needed to do is to maximise the effect on the result.
