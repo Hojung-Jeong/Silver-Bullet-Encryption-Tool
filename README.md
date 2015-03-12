@@ -147,7 +147,7 @@ There is nothing "Perfectly deterministic" in the universe we live in. It is som
 
 That means "True randomness" exists in the form of imprecision. This hypothesis explains a lot of observed facts about the universe we live in.
 
-Firstly, The universe expands faster and faster. There is no reasonable explanation for it, but now, we have one. If imprecision in parts of universe where other forces like gravity cannot cancel out its effects create new information in the form of imprecision, that means those parts are filled with new informations. If it happens on the scale of the whole universe. The result is expanding universe, and it will expand faster and faster as there are more and more information (or in other words, things) to make more imprecision which makes more things.
+Firstly, The universe expands faster and faster. There is no reasonable explanation for it, but now, we have one. If imprecision in parts of universe where other forces like gravity cannot cancel out its effects creates new information in the form of imprecision, that means those parts are filled with new informations. If it happens on the scale of the whole universe. The result is expanding universe, and it will expand faster and faster as there are more and more information (or in other words, things) to make more imprecision which makes more things.
 
 Secondly, the universe is not flat. Physicists have thought it is flat because mathematics said 0.999... equals 1 and 0.000...1 equals 0. Now, we proved that is wrong, so this concept needs to be corrected. It is nearly flat like giaaaaaaaaaaant balloon, but it is not entirely flat. There will always be some curves making it exist, not just fade away to flatness. It just looks flat to humans, but it is actually not.
 
