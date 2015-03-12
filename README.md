@@ -89,3 +89,5 @@ x = 1
 
 1 = 0.999...
 
+Ok, let's think about it, and before that, we should forget about mathematical rubbish like algebra, conversion, diversion or things like that.
+----------------------------------
