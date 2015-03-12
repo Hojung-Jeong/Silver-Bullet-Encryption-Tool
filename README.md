@@ -69,7 +69,7 @@ However, if you look closer in it, you will find the core argument is this "This
 
 Here are some of their arguments.
 ####
-1. It just works. See this
+1st. It just works. See this
 x = 0.999...
 
 10x = 9.999...
@@ -80,7 +80,7 @@ x = 0.999...
 
 x = 1
 
-2. Another proof
+2nd. Another proof
 
 1/3 = 0.333...
 3(1/3) = 3(0.333...)
