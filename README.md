@@ -70,7 +70,7 @@ However, if you look closer in it, you will find the core argument is this "This
 Here are some of their arguments.
 
 - It just works. See this
-
+------------------
 x = 0.999...
 
 10x = 9.999...
