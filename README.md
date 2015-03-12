@@ -157,4 +157,4 @@ In addition, I found out that relativity should be slightly corrected. It says "
 
 Finally, in that sense, there is nothing "truly" massless. Even particles like photons has its own mass, which gives it its existence. The imprecision is so tiny that it is safe to consider it having no mass. The difference is only visible on whole universe scale, so why not?
 
-I personally blame all of the contradictions and paradoxes in physics world on that mathematical imprecision. It is safe to use in human technology, but if we watch the whole universe, we can easily sea the difference.
+I personally blame all of the contradictions and paradoxes in physics world on that mathematical imprecision. It is safe to use in human technology, but if we watch the whole universe, we can easily see the difference.
