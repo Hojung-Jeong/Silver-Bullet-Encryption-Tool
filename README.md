@@ -141,7 +141,7 @@ Still some close-minded people may respond in this way
 Then, watch [this video](https://www.youtube.com/watch?v=D2xYjiL8yyE) and realise how self-contradictory conventional mathematics is when it comes to this topic (she is saying pi is 4, and any number is, in the end, 0)
 
 
-Let's go back to our main topic again. Physicists have struggled to figure out the source of "True randomness" because we have been told 0.999... equals 1. Now, with this new equation, let's really think about everything.
+Let's go back to our main topic again. Physicists have struggled to figure out the source of "True randomness" because we have been told 0.999... equals 1. Now, with this new equation, let's really re-think about everything.
 
 There is nothing "Perfectly deterministic" in the universe we live in. It is somewhat imprecise in every single part. However, they are usually so tiny that it is safe to ignore, or just being covered up by other forces (like gravity).
 
