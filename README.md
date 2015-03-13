@@ -93,20 +93,14 @@ x = 1
 
 1 = 0.999...
 
-Ok, let's think about it, and before that, we should forget about mathematical rubbish like algebra, conversion, diversion or things like that. Let's play just with numbers.
+Ok, let's think about it, and before that, we should forget about mathematical rubbish like algebra, conversion, diversion or things like that. Let's play just with numbers and logics.
 ----------------------------------
 
-If we define "Infinitely small number" that mainstream mathematics refuse to accept, we can easily find errors.
+If we declare that "infinitely small decimal numbers" can be used in calculations with real numbers, which mainstream mathematics refuse to accept, we can easily find errors. In other words, the number, 0...(infinite 0s)...1 can be used in real calculations
 
-Basically we will declare that there is a number system like 0.000...(infinite 0s)...001.
+Lots of mathematicians will quickly jump into it and say "No! It is impossible".
 
-Lots of mathematicians will quickly jump into it and say "No! There is no number like that".
-
-HOWEVER, REMEMBER. In the past, negative numbers were not accepted by mathematics society as well. It was finally accepted after mathematicians spent "Enough time" (to sneer the inventors of negative numbers and fail).
-
-In addition, the mainstream mathematics already accepted the existence of i (square root of -1). It defies all of the conventional "Mathematical proving" (again, processes to sneer the inventors of the new number system and fail), but we accept the fact that it clearly "exists".
-
-So, why not infinitely small numbers while we said yes to square root of -1?
+It is possible if we think the way below.
 ------------------
 Let's just define it as "ifs" (infinite sequence, ex. 0.111...(infinite 1s)...111), and disprove what mainstream mathematicians say.
 
@@ -139,6 +133,12 @@ Still some close-minded people may respond in this way
 (Insult) (Insult) (Insult) (Insult)
 
 Then, watch [this video](https://www.youtube.com/watch?v=D2xYjiL8yyE) and realise how self-contradictory conventional mathematics is when it comes to this topic (she is saying pi is 4, and any number is, in the end, 0)
+
+Obviously, pi is not 4 and square root of 2 is not 2. However, if the logics used in 0.999... equals 1 is true, indeed, pi is 4 and square root of 2 is 2. It does not make sense.
+
+However, if we think ifs(infinite sequence) can be used in calculations, that kind of dilemma does not exist. It works cleanly.
+
+We are already using i (square root of -1) in the way I am proposing. Then, why not ifs?
 
 
 Let's go back to our main topic again. Physicists have struggled to figure out the source of "True randomness" because we have been told 0.999... equals 1. Now, with this new equation, let's really re-think about everything.
