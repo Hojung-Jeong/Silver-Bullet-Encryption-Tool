@@ -104,7 +104,7 @@ It is possible if we think the way below.
 ------------------
 Let's just define it as "ifs" (infinite sequence, ex. 0.111...(infinite 1s)...111), and disprove what mainstream mathematicians say.
 
-1) x is still 9ifs (0.999...), not 1. Why have mathematicians thought the value of same variable x is same?
+1) x is still 9ifs (0.999...), not 1. Why have mathematicians thought the value of same variable x is different?
 
 x = 9ifs
 
@@ -116,7 +116,7 @@ x = 9ifs
 
 Simple and clear
 
-2) It is impossible to PRECISELY represent 1/3 in base 10. There is even no need to explain about it.
+2) It is impossible to PRECISELY represent 1/3 in base 10. There is even no need to explain about it. That is it. How simple is that!
 
 Still some close-minded people may respond in this way
 -----------------
@@ -128,23 +128,21 @@ Obviously, pi is not 4 and square root of 2 is not 2. However, if the logics use
 
 However, if we think ifs(infinite sequence) can be used in calculations, that kind of dilemma does not exist. It works cleanly.
 
-We are already using i (square root of -1) in the way I am proposing. Then, why not ifs?
 
-
-Let's go back to our main topic again. Physicists have struggled to figure out the source of "True randomness" because we have been told 0.999... equals 1. Now, with this new equation, let's really re-think about everything.
+Let's go back to our main topic again. Physicists have struggled to figure out the source of "True randomness" because we have been told 0.999... equals 1. Now, after crushing that myth, let's really re-think about everything.
 
 There is nothing "Perfectly deterministic" in the universe we live in. It is somewhat imprecise in every single part. However, they are usually so tiny that it is safe to ignore, or just being covered up by other forces (like gravity).
 
 That means "True randomness" exists in the form of imprecision. This hypothesis explains a lot of observed facts about the universe we live in.
 
-Firstly, The universe expands faster and faster. There is no reasonable explanation for it, but now, we have one. If imprecision in parts of universe where other forces like gravity cannot cancel out its effects creates new information in the form of imprecision, that means those parts are filled with new informations. If it happens on the scale of the whole universe. The result is expanding universe, and it will expand faster and faster as there are more and more information (or in other words, things) to make more imprecision which makes more things.
+Firstly, The universe expands faster and faster. There is no reasonable explanation for it, but now, we have one. If imprecision in parts of universe where other forces like gravity cannot cancel out its effects creates new information in the form of imprecision, that means those parts are always being filled with new information. If it happens on the scale of the whole universe. The result is expanding universe, and it will expand faster and faster as there are more and more information (or in other words, things) to make more imprecision which makes more things.
 
 Secondly, the universe is not flat. Physicists have thought it is flat because mathematics said 0.999... equals 1 and 0.000...1 equals 0. Now, we proved that is wrong, so this concept needs to be corrected. It is nearly flat like giaaaaaaaaaaant balloon, but it is not entirely flat. There will always be some curves making it exist, not just fade away to flatness. It just looks flat to humans, but it is actually not.
 
 If we combine the two previous points, we can get this conclusion "The universe we live in is neither finite or infinite. There is definitely boundary of the entire universe, but it is being pushed further and further infinitely"
 
-In addition, I found out that relativity should be slightly corrected. It says "Nothing is faster than light because nothing with mass can exist at speed of light". It sounds self-contradictory, and it is. It's because even Einstein was fooled by this stupid mathematical equation. It should be changed like this "There is ultimate speed limit in the physical world we live in, and it is extremely slightly faster than speed of light. Nothing can exist at that speed. The point is because light is the only known element travelling closest to that speed and the difference is extremely tiny (which is only visible on whole universe scale), it is safe to use the speed of light as the ultimate speed limit".
+In addition, I found out that relativity should be slightly corrected. It says "Nothing is faster than light because nothing with mass can exist at speed of light". It sounds self-contradictory, and it is. It's because even Einstein was fooled by this stupid mathematical equation. It should be changed like this "There is ultimate speed limit in the physical world we live in, and it is extremely slightly faster than speed of light. Nothing can exist at that speed. The point is because light is the only known element travelling closest to that speed, and the difference is extremely tiny (which is only visible on whole universe scale), it is safe to use the speed of light as the ultimate speed limit".
 
-Finally, in that sense, there is nothing "truly" massless. Even particles like photons has its own mass, which gives it its existence. The imprecision is so tiny that it is safe to consider it having no mass. The difference is only visible on whole universe scale, so why not?
+Finally, in that sense, there is nothing "truly" massless. Even particles like photons has its own mass, which gives it its existence. However, that mass (which is not detectable with the current technology) is so tiny that it is safe to consider it having no mass. The difference is only visible on whole universe scale.
 
 I personally blame all of the contradictions and paradoxes in physics world on that mathematical imprecision. It is safe to use in human technology, but if we watch the whole universe, we can easily see the difference.
