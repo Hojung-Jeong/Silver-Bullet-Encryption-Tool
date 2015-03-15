@@ -116,17 +116,7 @@ x = 9ifs
 
 Simple and clear
 
-2) It is impossible to PRECISELY represent 1/3 in base 10. So...
-
-x = 1/3
-
-x = 3ifs
-
-3x = 9ifs
-
-x = 3ifs
-
-Again, simple and clear.
+2) It is impossible to PRECISELY represent 1/3 in base 10. There is even no need to explain about it.
 
 Still some close-minded people may respond in this way
 -----------------
