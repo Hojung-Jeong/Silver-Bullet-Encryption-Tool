@@ -49,7 +49,7 @@ def generate():
 		with open (num_gen, 'a') as opener:
 			opener.write('9')
 
-	#==================================
+	#-------------------------------
 
 
 	def first():
@@ -102,7 +102,7 @@ def generate():
 		thread_3.start()
 		thread_4.start()
 
-	#================================
+	#-------------------------------
 
 	def thread_set():
 		thread_1=Thread(target=first)
@@ -123,7 +123,7 @@ def generate():
 	ithread_2.start()
 
 
-	#=================================
+	#-------------------------------
 
 
 	reader=open(num_gen, 'r').read()

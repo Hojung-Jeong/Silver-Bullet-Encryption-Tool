@@ -2,93 +2,117 @@ import random
 
 from case import propellant
 
+# Ascii-related operations and variables =========
+
+ascii_buffer=191
+
+ascii_value=256
+
+def ascii_check(value):
+	if value<0:
+		return value+ascii_value
+
+	elif value>=ascii_value:
+		return value-ascii_value
+	else:
+		return value
 
 
 
 
-#Pad generator =================================================
+# Generate pad ===================================
 
-def padding_op(ui_listed, padding):
+def pad_gen(ui_numbered):
+	pad=[0 for num in range(len(ui_numbered))]
+
+	for counter in range(5):
+		random.seed(propellant.propellant())
+		pad=[ascii_check(element+random.randrange(ascii_value)) for element in pad]
+
+		random.seed(propellant.propellant())
+		random.shuffle(pad)
+
+	return pad
+
+
+
+
+# Crypto operations ==============================
+
+def encrypt_op(ui_listed, pad):
 	holder=[]
+	counter=0
 
-	for counter in range(len(ui_listed)):
-		pad_element=abs(int(ui_listed[counter])-int(padding[counter%len(padding)]))
-		holder.append(pad_element)
+	for element in ui_listed:
+		ciphered=element^pad[counter]
+		holder.append(chr(ciphered+ascii_buffer))
+		counter+=1
+
+	joined=''.join(holder)
+	return joined
+
+
+def lock_op(pad, passphrase):
+	holder=[]
+	random.seed(passphrase)
+
+	for element in pad:
+		locked=ascii_check(element+random.randrange(ascii_value))
+		holder.append(chr(locked+ascii_buffer))
+
+	joined=''.join(holder)
+	return joined
+
+
+def unlock_op(locked_pad, passphrase):
+	locked_pad_listed=list(locked_pad)
+	holder=[]
+	random.seed(passphrase)
+
+	for element in locked_pad_listed:
+		unlocked=ascii_check(ord(element)-ascii_buffer-random.randrange(ascii_value))
+		holder.append(unlocked)
+
+	return holder
+
+
+def decrypt_op(cipher_text, pad):
+	cipher_text_listed=list(cipher_text)
+	holder=[]
+	counter=0
+
+	for element in cipher_text_listed:
+		numbered=ord(element)-ascii_buffer
+		decrypted=numbered^pad[counter]
+		holder.append(decrypted)
+		counter+=1
 
 	return holder
 
 
 
-def pad_gen(user_input):
-	ui_listed=list(str(user_input))
 
-	for counter in range(5):
-		padding=list(str(propellant.propellant()))
+# Core engine of the crypto ===========================================================
 
-		pad=padding_op(ui_listed, padding)
-		random.seed(propellant.propellant())
-		random.shuffle(pad)
+def encrypt_core(ui_listed, passphrase):
 
-	joined_pad=''.join(map(str, pad))
-
-	return int(joined_pad)
-
-
-
-
-
-#Locker Generator ==============================================
-
-def locker_gen(cipher_text, passphrase):
-	random.seed(passphrase)
-	locker=0
-
-	while locker<cipher_text:
-		locker+=random.randrange(cipher_text)
-		
-		desolved_locker=list(str(locker))
-		random.shuffle(desolved_locker)
-		locker=int(''.join(desolved_locker))
-
-	return locker
-
-
-
-
-
-#Core engines of the crypto ====================================
-
-def encrypt_core(user_input, passphrase):
-	#Make user input integer=========
-	user_input=int(user_input)
-
-
-	#Encrypt user input with pad ====
-	pad=pad_gen(user_input)
-	cipher_text=user_input^pad
-
-
-	#Lock pad with locker ===========
-	locker=locker_gen(cipher_text, passphrase)
-	locked_pad=pad+locker
+	#Generate pad and encrypt ----------
+	pad=pad_gen(ui_listed)
+	cipher_text=encrypt_op(ui_listed, pad)
+	
+	#Lock the pad-----------------------
+	locked_pad=lock_op(pad, passphrase)
 
 	return (cipher_text, locked_pad)
 
 
 
-
 def decrypt_core(cipher_text, locked_pad, passphrase):
-	#Make necessary data integers ===
-	cipher_text=int(cipher_text)
-	locked_pad=int(locked_pad)
 
+	#Unlock the pad --------------------
+	pad=unlock_op(locked_pad, passphrase)
 
-	#Unlock the pad =================
-	locker=locker_gen(cipher_text, passphrase)
-	pad=locked_pad-locker
+	#Decrypt the string-----------------
+	deciphered=decrypt_op(cipher_text, pad)
 
-
-	#Decrypt the cipher text ========
-	plain_text=cipher_text^pad
-
-	return plain_text
+	return deciphered

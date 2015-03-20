@@ -24,6 +24,14 @@ NOTE THAT IT IS RECOMMENDED AGAINST TO CHANGE THE FILE NAME.
 
 error='Oops! There was an unexpected error'
 
+fd_error='''Make sure that Encrypted.txt and Pad.txt are in the given directory
+Or check whether you typed the correct directory name
+Or please check your passphrase
+If you checked all of them, but still get this error, your file is likely to be corrupted
+'''
+
+
+
 
 def next_op():
 	input('Please hit enter to go ahead')
@@ -131,14 +139,14 @@ def file_decrypt():
 
 		decrypted=rim.decrypt(string, pad, passphrase)
 
-		with open(dirname+'/Decrypted.'+extension, 'w') as opener:
+		with open(dirname+extension, 'w') as opener:
 			opener.write(decrypted)
 
 		print('\nDecrypted file was successfully created\n\n')
 		next_op()
 
 	except:
-		print('\nMake sure that Encrypted.txt and Pad.txt are in the given directory\nOr check whether you typed the correct directory name\nOr please check your passphrase')
+		print('\n'+fd_error)
 		print('Operation aborted')
 		next_op()
 
