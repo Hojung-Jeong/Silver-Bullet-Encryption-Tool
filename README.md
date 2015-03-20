@@ -118,11 +118,7 @@ Simple and clear
 
 2) It is impossible to PRECISELY represent 1/3 in base 10. There is even no need to explain about it. That is it. How simple is that!
 
-Still some close-minded people may respond in this way
------------------
-(Insult) (Insult) (Insult) (Insult)
-
-Then, watch [this video](https://www.youtube.com/watch?v=D2xYjiL8yyE) and realise how self-contradictory conventional mathematics is when it comes to this topic (she is saying pi is 4, and any number is, in the end, 0)
+In addition, watch [this video](https://www.youtube.com/watch?v=D2xYjiL8yyE) and realise how self-contradictory conventional mathematics is when it comes to this topic (According to the logic mathematicians use to argue 0.999... equals 1, pi is indeed 4 and square root of 2 is 2. It doesn't make sense)
 
 Obviously, pi is not 4 and square root of 2 is not 2. However, if the logics used in 0.999... equals 1 is true, indeed, pi is 4 and square root of 2 is 2. It does not make sense.
 
