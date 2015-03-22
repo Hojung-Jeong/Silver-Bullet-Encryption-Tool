@@ -64,66 +64,19 @@ In this programme, I created true randomness using a deterministic system. It wa
 
 The universe we live in is made up of 12 fundamental particles interacting in 4 different and predictable ways. In other words, it is somewhat deterministic. However, what if it is not perfectly deterministic?
 
-In my opinion, there are tiny imprecision in all over the universe which makes truly random phenomena. However, humans have ignored them by saying "0.999... equals 1". Ok, I will firstly crush this false thinking.
+In my opinion, there are tiny imprecision in all over the universe which makes truly random phenomena. However, humans have ignored them by saying "0.999... equals 1".
 
-What mathematicians say in "0.999... = 1" argument is that 0.000...1 is not a number, so it is basically 1. They will insist with algebra, conversion of fraction, and things like that.
+This is one of systematic fraud in mathematics. To simply debunk it, let's think it this way.
 
-However, if you look closer in it, you will find the core argument is this "This just works, so you (those who think 0.999... does not equal 1) are wrong".
+Infinity means there is no end.
 
+So, there can NEVER BE AND END in 0.999...
 
-Here are some of their arguments.
---------------------
-1) It just works. See this
+Then, it is simply impossible to find an "infinite end" and claim "after that point, it becomes 1"
 
-x = 0.999...
+Actually, 0.999... will be more than 1 and more than any number because it goes on like this according to traditional argument.
 
-10x = 9.999...
-
-10x - x = 9.999... - 0.999...
-
-9x = 9
-
-x = 1
-
-2) Another proof
-
-1/3 = 0.333...
-
-3(1/3) = 3(0.333...)
-
-1 = 0.999...
-
-Ok, let's think about it, and before that, we should forget about mathematical rubbish like algebra, conversion, diversion or things like that. Let's play just with numbers and logics.
-----------------------------------
-
-If we declare that "infinitely small decimal numbers" can be used in calculations with real numbers, which mainstream mathematics refuse to accept, we can easily find errors. In other words, the number, 0...(infinite 0s)...1 can be used in real calculations
-
-Lots of mathematicians will quickly jump into it and say "No! It is impossible".
-
-It is possible if we think the way below.
-------------------
-Let's just define it as "ifs" (infinite sequence, ex. 0.111...(infinite 1s)...111), and disprove what mainstream mathematicians say.
-
-1) x is still 9ifs (0.999...), not 1. Why have mathematicians thought the value of same variable x is different?
-
-x = 9ifs
-
-10x = 90ifs
-
-9x = 81ifs
-
-x = 9ifs
-
-Simple and clear
-
-2) It is impossible to PRECISELY represent 1/3 in base 10. There is even no need to explain about it. That is it. How simple is that!
-
-In addition, watch [this video](https://www.youtube.com/watch?v=D2xYjiL8yyE) and realise how self-contradictory conventional mathematics is when it comes to this topic (According to the logic mathematicians use to argue 0.999... equals 1, pi is indeed 4 and square root of 2 is 2. It doesn't make sense)
-
-Obviously, pi is not 4 and square root of 2 is not 2. However, if the logics used in 0.999... equals 1 is true, indeed, pi is 4 and square root of 2 is 2. It does not make sense.
-
-However, if we think ifs(infinite sequence) can be used in calculations, that kind of dilemma does not exist. It works cleanly.
-
+However, it isn't the case at all.
 
 Let's go back to our main topic again. Physicists have struggled to figure out the source of "True randomness" because we have been told 0.999... equals 1. Now, after crushing that myth, let's really re-think about everything.
 
