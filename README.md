@@ -51,8 +51,4 @@ This [MSDN article](https://msdn.microsoft.com/en-us/magazine/cc163744.aspx) exp
 
 This means basically, computers cannot control whether a thread will be covered up by another one or not. It is basically 50:50 chance in every single digit. 
 
-What I needed to do to create true random number generator using python 3 is to get that closer, and maximise the effect. Simple as that!
-
 Hope you enjoy it
-
-
