@@ -27,11 +27,22 @@ def pad_gen(ui_numbered):
 	rounds=3+propellant.propellant()%6
 
 	for counter in range(rounds):
-		random.seed(propellant.propellant())
-		pad=[ascii_check(element+random.randrange(ascii_value)) for element in pad]
+		op_decider=propellant.propellant()%3
 
-		random.seed(propellant.propellant())
-		random.shuffle(pad)
+		if op_decider is 0:
+			random.seed(propellant.propellant())
+			pad=[ascii_check(element+random.randrange(ascii_value)) for element in pad]
+		
+		elif op_decider is 1:
+			random.seed(propellant.propellant())
+			random.shuffle(pad)			
+		
+		elif op_decider is 2:
+			random.seed(propellant.propellant())
+			pad=[ascii_check(element+random.randrange(ascii_value)) for element in pad]
+			
+			random.seed(propellant.propellant())
+			random.shuffle(pad)
 
 	return pad
 
