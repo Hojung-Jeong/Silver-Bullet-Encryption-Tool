@@ -4,8 +4,6 @@ from case import propellant
 
 # Ascii-related operations and variables =========
 
-ascii_buffer=191
-
 ascii_value=256
 
 def ascii_check(value):
@@ -22,26 +20,36 @@ def ascii_check(value):
 
 # Generate pad ===================================
 
+def decide_type(value):
+	int_or_str=propellant.propellant()%2
+
+	if int_or_str is 0:
+		return int(value)
+	else:
+		return str(value)
+
+
 def pad_gen(ui_numbered):
 	pad=[0 for num in range(len(ui_numbered))]
 	rounds=3+propellant.propellant()%6
 
 	for counter in range(rounds):
 		op_decider=propellant.propellant()%3
+		actual_seed=propellant.propellant()
 
 		if op_decider is 0:
-			random.seed(propellant.propellant())
+			random.seed(decide_type(actual_seed))
 			pad=[ascii_check(element+random.randrange(ascii_value)) for element in pad]
 		
 		elif op_decider is 1:
-			random.seed(propellant.propellant())
+			random.seed(decide_type(actual_seed))
 			random.shuffle(pad)			
 		
 		elif op_decider is 2:
-			random.seed(propellant.propellant())
+			random.seed(decide_type(actual_seed))
 			pad=[ascii_check(element+random.randrange(ascii_value)) for element in pad]
 			
-			random.seed(propellant.propellant())
+			random.seed(decide_type(actual_seed))
 			random.shuffle(pad)
 
 	return pad
@@ -57,10 +65,10 @@ def encrypt_op(ui_listed, pad):
 
 	for element in ui_listed:
 		ciphered=element^pad[counter]
-		holder.append(chr(ciphered+ascii_buffer))
+		holder.append(ciphered)
 		counter+=1
 
-	joined=''.join(holder)
+	joined=' '.join(map(str, holder))
 	return joined
 
 
@@ -70,32 +78,31 @@ def lock_op(pad, passphrase):
 
 	for element in pad:
 		locked=ascii_check(element+random.randrange(ascii_value))
-		holder.append(chr(locked+ascii_buffer))
+		holder.append(locked)
 
-	joined=''.join(holder)
+	joined=' '.join(map(str, holder))
 	return joined
 
 
 def unlock_op(locked_pad, passphrase):
-	locked_pad_listed=list(locked_pad)
+	locked_pad_listed=locked_pad.split(' ')
 	holder=[]
 	random.seed(passphrase)
 
 	for element in locked_pad_listed:
-		unlocked=ascii_check(ord(element)-ascii_buffer-random.randrange(ascii_value))
+		unlocked=ascii_check(int(element)-random.randrange(ascii_value))
 		holder.append(unlocked)
 
 	return holder
 
 
 def decrypt_op(cipher_text, pad):
-	cipher_text_listed=list(cipher_text)
+	cipher_text_listed=cipher_text.split(' ')
 	holder=[]
 	counter=0
 
 	for element in cipher_text_listed:
-		numbered=ord(element)-ascii_buffer
-		decrypted=numbered^pad[counter]
+		decrypted=int(element)^pad[counter]
 		holder.append(decrypted)
 		counter+=1
 
