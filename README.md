@@ -1,7 +1,7 @@
 #Silver Bullet Encryption Tool
 Silver Bullet Encryption Tool is an encryption tool based on three-dimensional cryptography model (it can be called 'advanced one time pad'). It also contains true random number generator which makes stream of random data by making data corruption intentionally.
 
-From ver5.0, Silver Bullet Encryption Tool is a module. It does not have user interface anymore
+From v5.0, Silver Bullet Encryption Tool is a module. It does not have user interface anymore
 
 #Install  
 Windows   
