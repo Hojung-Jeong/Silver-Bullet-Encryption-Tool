@@ -24,5 +24,9 @@ Unix-based systems
 >passphrase = 'Passphrase should be complex!'  
 >plain_text = decrypt(plain_text, locked_pad, passphrase)  
 
+#Generate random numbers
+>from silver_bullet.propellant import propellant  
+>print(propellant())
+
 #License
 Apache License
