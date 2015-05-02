@@ -7,7 +7,7 @@ From ver5.0, Silver Bullet Encryption Tool is a module. It does not have user in
 Windows   
 >setup.py install  
 
-Linux  
+Unix-based systems  
 >sudo setup.py install
 
 
