@@ -12,17 +12,17 @@ Unix-based systems
 
 
 #Encrypt
->from silver_bullet.rim import encrypt, decrypt  
+>from  silver_bullet . rim  import encrypt,  decrypt  
 >plain_text = 'This is top secret'  
 >passphrase = 'Passphrase should be complex!'  
->cipher_text, locked_pad = encrypt(plain_text, passphrase)  
+>cipher_text, locked_pad = encrypt ( plain_text,  passphrase )   
 
 #Decrypt
->from silver_bullet.rim import encrypt, decrypt  
+>from  silver_bullet . rim  import  encrypt,  decrypt  
 >plain_text = '12 34 56 78 90'  
 >locked_pad = '09 87 65 43 21'   
 >passphrase = 'Passphrase should be complex!'  
->plain_text = decrypt(plain_text, locked_pad, passphrase)  
+>plain_text = decrypt ( plain_text, locked_pad,  passphrase )  
 
 #Generate random numbers
 >from silver_bullet.propellant import propellant  
