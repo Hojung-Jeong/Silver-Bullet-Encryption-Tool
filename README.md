@@ -26,7 +26,7 @@ Unix-based systems
 
 #Generate random numbers
 >from silver_bullet.propellant import propellant  
->print(propellant())
+>print ( propellant( ) )
 
 #License
 Apache License
