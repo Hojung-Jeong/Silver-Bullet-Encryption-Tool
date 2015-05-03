@@ -5,10 +5,10 @@ From v5.0, Silver Bullet Encryption Tool is a python module. It does not have us
 
 #Install  
 Windows   
->setup.py install  
+>python3 setup.py install  
 
 Unix-based systems  
->sudo setup.py install
+>sudo python3 setup.py install
 
 
 #Encrypt
