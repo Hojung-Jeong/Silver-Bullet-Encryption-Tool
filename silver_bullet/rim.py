@@ -1,7 +1,7 @@
 import zlib
 import sys
 
-from case import primer
+from silver_bullet import primer
 
 
 def encrypt(user_input, passphrase):

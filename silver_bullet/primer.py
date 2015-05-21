@@ -1,6 +1,6 @@
 import random
 
-from case import propellant
+from silver_bullet import propellant
 
 # Ascii-related operations and variables =========
 

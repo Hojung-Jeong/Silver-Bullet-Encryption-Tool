@@ -6,7 +6,7 @@ from threading import Thread
 
 def generate():
 
-	num_gen='case/number.num'
+	num_gen='silver_bullet/number.num'
 
 
 	def zero():
