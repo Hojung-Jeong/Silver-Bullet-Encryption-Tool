@@ -30,7 +30,7 @@ Unix-based systems
 
 
 #How it works
-1. The random number generator of this module makes randomness by executing several threads without lock. In any programming languages, if several threads are executed withou any limit, which makes them share same memory space, the result is unpredictable.
+1. The random number generator of this module makes randomness by executing several threads without lock. In any programming languages, if several threads are executed without delimiter, which makes them share same memory space, the result is unpredictable.
 2. One of biggest security risks related to "many time pads" (basically doing one-time pad operations multiple times with the same pad) is called "Crib-dragging". It is an attack which utilises the fact that "multiple time pads" encrypt data using same pad and operations. However, if two different strings are encrypted using different operations, there is no way to drag out the random pad (which can be conveniently called buffer)
 
 
