@@ -4,6 +4,7 @@ Silver Bullet Encryption Tool is an encryption tool based on three-dimensional c
 #Install  
 On Windows machines or virtualenv
 >python3 setup.py install      
+
 Installing directly on Unix-based system
 >sudo python3 setup.py install  
 
