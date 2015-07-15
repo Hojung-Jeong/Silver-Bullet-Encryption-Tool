@@ -1,11 +1,9 @@
 #Silver Bullet Encryption Tool
-Silver Bullet Encryption Tool is an encryption tool based on three-dimensional cryptography model (it can be called 'advanced one time pad'). It also contains true random number generator which makes stream of random data by making data corruption intentionally.
-
-From v5.0, Silver Bullet Encryption Tool is a python module. It does not have user interface anymore from that version.
+Silver Bullet Encryption Tool is an encryption tool based on three-dimensional cryptography model (it can also be called 'advanced one time pad'). It also true random number generator which makes stream of random data by making data corruption intentionally.
 
 #Install  
 On Windows machines or virtualenv
->python3 setup.py install  
+>python3 setup.py install      
 Installing directly on Unix-based system
 >sudo python3 setup.py install  
 
