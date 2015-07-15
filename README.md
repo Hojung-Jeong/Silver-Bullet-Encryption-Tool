@@ -11,7 +11,7 @@ Installing directly on Unix-based system
 
 #Symmetric
 -Encrypt
->from  silver_bullet.symcrypt  import sym_encrypt
+>from silver_bullet.symcrypt import sym_encrypt    
 >plain_text = 'This is top secret'  
 >passphrase = 'Passphrase should be complex!'  
 >cipher_text, locked_pad = sym_encrypt ( plain_text,  passphrase )   
