@@ -2,7 +2,7 @@
 '''
 List of functions:
 	
-	1. propellant()             -              A true random number generator utilising data corruption. Data corruption occurs
+	1. trng()             -              A true random number generator utilising data corruption. Data corruption occurs
 	                                           in number.num file (specified in variable num_gen).
 
 

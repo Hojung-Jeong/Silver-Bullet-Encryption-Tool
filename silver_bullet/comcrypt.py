@@ -1,3 +1,16 @@
+
+'''
+List of functions:
+
+	1. scom_encrypt(user_input, passphrase)       -         The name stands for "symmetric compressed encryption".
+	                                                        It provides same functionality with standard SBET symmetric
+	                                                        encryption with compression.
+
+	2. scom_decrypt(user_input, passphrase)       -         The name stands for "symmetric compressed decryption".
+	                                                        It provides same functionality with standard SBET symmetric
+	                                                        decryption with compression.
+'''
+
 import zlib
 import sys
 
