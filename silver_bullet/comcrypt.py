@@ -7,8 +7,8 @@ List of functions:
 	                                                        encryption with compression.
 
 	2. scom_decrypt(user_input, passphrase)       -         The name stands for "symmetric compressed decryption".
-	                                                        It provides same functionality with standard SBET symmetric
-	                                                        decryption with compression.
+	                                                        A user can decrypt a message which was compressed while being
+	                                                        encrypted
 '''
 
 import zlib
