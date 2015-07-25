@@ -44,30 +44,20 @@ def decide_type(value):
 
 def pad_gen(ui_listed):
 	pad=[0 for num in range(len(ui_listed))]
-	rounds = 5 + (trng() % 10)
 
-	for counter in range(rounds):
-		op_decider = trng() % 4
+	for counter in range(20):
+		op_decider = trng() % 3
 		actual_seed = trng()
 
 		if op_decider is 0:
 			random.seed(decide_type(actual_seed))
 			pad=[contain_ascii(element + random.randrange(ascii_value)) for element in pad]
-		
 		elif op_decider is 1:
 			random.seed(decide_type(actual_seed))
 			pad=[contain_ascii(element - random.randrange(ascii_value)) for element in pad]
-			
-			random.seed(decide_type(actual_seed))
-			random.shuffle(pad)
-		
 		elif op_decider is 2:
 			random.seed(decide_type(actual_seed))
-			pad=[element ^ random.randrange(ascii_value) for element in pad]
-
-		elif op_decider is 3:
-			random.seed(decide_type(actual_seed))
-			random.shuffle(pad)			
+			pad=[element ^ random.randrange(ascii_value) for element in pad]		
 
 	return pad
 
