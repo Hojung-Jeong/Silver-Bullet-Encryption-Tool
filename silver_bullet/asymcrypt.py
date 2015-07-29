@@ -35,19 +35,19 @@ This is how to use this library
 
 
 
-*Example script
->from silver_bullet.asymcrypt import gen_common,gen_key,asym_encrypt,asym_decrypt
->
->common=gen_common()
-
->Apub,Apriv=gen_key(common)
->Bpub,Bpriv=gen_key(common)
-
->text="Hello!!! I will be hidden behind nothing!!! :)"
-
->cipher_text,locked_pad=asym_encrypt(text,Apub,Bpriv)
-
->print(asym_decrypt(cipher_text,locked_pad,Bpub,Apriv))
+	-------------------------------Example script-------------------------------
+#from silver_bullet.asymcrypt import gen_common,gen_key,asym_encrypt,asym_decrypt
+#
+#common=gen_common()
+#
+#Apub,Apriv=gen_key(common)
+#Bpub,Bpriv=gen_key(common)
+#
+#text="Hello!!! I will be hidden behind nothing!!! :)"
+#
+#cipher_text,locked_pad=asym_encrypt(text,Apub,Bpriv)
+#
+#print(asym_decrypt(cipher_text,locked_pad,Bpub,Apriv))
 
 
 
