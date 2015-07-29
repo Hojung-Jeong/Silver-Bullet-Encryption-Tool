@@ -52,7 +52,7 @@ Installing directly on Unix-based system
 
 -Asymmetric    
 1. Public and Private keys a user has are not directly related. They are related in a sense that they are made from same pair of integers, but in Public key, their data is partly corrupted because of NAND and OR gate operations.    
-2. Even if the data is partly corrupted, it is possible to reach the same result if they are exchanged in specific way.
+2. Even if the data is partly corrupted, it is possible to reach the same result if they are exchanged in specific way.\n
 3. Random pads are added to prevent chosen-ciphertext attack
 4. To simply put    
   (A nand C)  ^ (A or C) ^ Arand = D(A ^ C with partly corrupted data to prevent reverse)    
