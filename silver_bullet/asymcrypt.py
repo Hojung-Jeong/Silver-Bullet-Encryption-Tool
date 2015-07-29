@@ -35,7 +35,7 @@ This is how to use this library
 
 
 
-	-------------------------------Example script-------------------------------
+-------------------------------Example script-------------------------------
 #from silver_bullet.asymcrypt import gen_common,gen_key,asym_encrypt,asym_decrypt
 #
 #common=gen_common()
