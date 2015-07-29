@@ -45,7 +45,7 @@ This is how to use this library
 
 >text="Hello!!! I will be hidden behind nothing!!! :)"
 
->cipher_text,locked_pad=asym_encrypt(text,Bpub,Apriv)
+>cipher_text,locked_pad=asym_encrypt(text,Apub,Bpriv)
 
 >print(asym_decrypt(cipher_text,locked_pad,Bpub,Apriv))
 
