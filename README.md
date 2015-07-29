@@ -50,7 +50,14 @@ Installing directly on Unix-based system
 1. The random number generator of this module makes randomness by executing several threads without lock. In any programming languages, if several threads are executed without delimiter, which makes them share same memory space, the result is unpredictable.    
 2. One of biggest security risks related to "many time pads" (basically doing one-time pad operations multiple times with the same pad) is called "Crib-dragging". It is an attack which utilises the fact that "multiple time pads" encrypt data using same pad and operations. However, if two different strings are encrypted using different operations, there is no way to drag the random pad out.    
 
--Asymmetric
+-Asymmetric    
+1. Public and Private keys a user has are not directly related. They are related in a sense that they are made from same pair of integers, but in Public key, their data is partly corrupted because of NAND and OR gate operations.    
+2. Even if the data is partly corrupted, it is possible to reach the same result if they are exchanged in specific way.
+3. To simply put    
+  (A nand C)  ^ (A or C) = D(A ^ C with partly corrupted data to prevent reverse)    
+  (B nand C)  ^ (B or C) = E(B ^ C with partly corrupted data to prevent reverse)    
+  (A ^ E) = (B ^ D)    
 
-#License
-Apache License
+
+#License    
+Apache License    
