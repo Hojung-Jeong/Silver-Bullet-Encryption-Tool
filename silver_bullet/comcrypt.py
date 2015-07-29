@@ -1,3 +1,8 @@
+import zlib
+import sys
+
+from silver_bullet.symcrypt import sym_encrypt_core, sym_decrypt_core
+
 
 '''
 List of functions:
@@ -10,11 +15,6 @@ List of functions:
 	                                                        A user can decrypt a message which was compressed while being
 	                                                        encrypted
 '''
-
-import zlib
-import sys
-
-from silver_bullet.symcrypt import sym_encrypt_core, sym_decrypt_core
 
 
 def scom_encrypt(user_input,passphrase):

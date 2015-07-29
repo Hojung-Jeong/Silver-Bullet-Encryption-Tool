@@ -1,3 +1,5 @@
+from threading import Thread
+
 
 '''
 List of functions:
@@ -7,13 +9,19 @@ List of functions:
 
 
                        ---If you want to compile this script,                       
-                       		***This file MUST be compiled in speical way to ensure right behaviour!!!***
-                        	***That special way is providing an environment guaranteeing thread racing***
+                       		***This file MUST be compiled in speical way to ensure right behaviour!!!*****
+                        	***That "special way" is providing an environment guaranteeing thread racing***
 
 '''
 
-from threading import Thread
+def trng():
+	while  True:
+		try:
+			return generate()
+		except:
+			pass
 
+#===============================================================================
 
 def generate():
 	num_gen='silver_bullet/number.num'
@@ -171,12 +179,3 @@ def generate():
 		opener.write('')
 
 	return int(reader)
-
-#---------------------------------------------------------------
-
-def trng():
-	while  True:
-		try:
-			return generate()
-		except:
-			pass

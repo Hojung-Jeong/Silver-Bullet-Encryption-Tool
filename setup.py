@@ -3,6 +3,6 @@ from distutils.core import setup
 setup(
 	name='Silver Bullet',
 	author='Hojung Jeong',
-	version='5.2.2',
+	version='6.0',
 	py_modules=['silver_bullet']
 )
