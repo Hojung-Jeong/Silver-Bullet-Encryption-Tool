@@ -23,7 +23,7 @@ Installing directly on Unix-based system
 >passphrase = 'Passphrase should be complex!'  
 >plain_text = sym_decrypt ( plain_text, locked_pad,  passphrase )  
 
--Generate random numbers
+#Generate random numbers
 >from silver_bullet.TRNG import trng  
 >print ( trng( ) )
 
