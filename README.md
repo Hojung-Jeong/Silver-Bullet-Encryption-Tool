@@ -55,9 +55,9 @@ Installing directly on Unix-based system
 2. Even if the data is partly corrupted, it is possible to reach the same result if they are exchanged in specific way.    
 3. Random pads are added to prevent chosen-ciphertext attack   
 4. To simply put     
-  (A nand C)  ^ (A or C) ^ Arand = D(A ^ C with partly corrupted data to prevent reverse)    
-  (B nand C)  ^ (B or C) ^ Brand = E(B ^ C with partly corrupted data to prevent reverse)    
-  (E ^ A ^ Arand) = (D ^ B ^ Brand)    
+>(A nand C)  ^ (A or C) ^ Arand = D(A ^ C with partly corrupted data to prevent reverse)    
+>(B nand C)  ^ (B or C) ^ Brand = E(B ^ C with partly corrupted data to prevent reverse)    
+>(E ^ A ^ Arand) = (D ^ B ^ Brand)    
 
 
 #License    
