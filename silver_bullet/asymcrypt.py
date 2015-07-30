@@ -56,7 +56,6 @@ This is how to use this library
 '''
 
 
-#maximum=2147483648
 minimum=1073741824
 
 
