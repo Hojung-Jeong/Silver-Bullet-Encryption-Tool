@@ -109,7 +109,7 @@ def decide_type(value):
 def pad_gen(ui_listed):
 	pad=[0 for num in range(len(ui_listed))]
 
-	for counter in range(20):
+	for counter in range(10):
 		op_decider=trng()%3
 		actual_seed=trng()
 
