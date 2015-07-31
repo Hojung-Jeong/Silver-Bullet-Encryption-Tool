@@ -51,7 +51,7 @@ Installing directly on Unix-based system
 2. One of biggest security risks related to "many time pads" (basically doing one-time pad operations multiple times with the same pad) is called "Crib-dragging". It is an attack which utilises the fact that "multiple time pads" encrypt data using same pad and operations. However, if two different strings are encrypted using different operations, there is no way to drag the random pad out.    
 
 -Asymmetric    
-1. Public and Private keys a user has are not directly related. They are related in a sense that they are made from same pair of integers, but in Public key, their data is partly corrupted because of NAND and OR gate operations.    
+1. Public and Private key are not directly related to one another. They are related in a sense that they are computed from same pair of integers, but in Public key, their data is partly lost(in other words, corrupted) because of NAND and OR gate operations.    
 2. Even if the data is partly corrupted, it is possible to reach the same result if they are exchanged in specific way.    
 3. Random pads are added to prevent chosen-ciphertext attack   
 4. To simply put     
