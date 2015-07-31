@@ -1,19 +1,20 @@
 import random
+from hashlib import sha1
 
 from silver_bullet.TRNG import trng
 from silver_bullet.bitwise import nand
-from silver_bullet.symcrypt import pad_gen,contain_ascii,ascii_value
+from silver_bullet.symcrypt import sym_encrypt,sym_decrypt
 
 
 '''
 Lis of functions:
-	1. gen_common()                                              -                       Generates publishable number(That number is called common)
+	1. gen_common()                                             -          Generates publishable number(That number is called common)
 	
-	2. gen_key(common)                                           -                       Generates public and private key pair for the user.
+	2. gen_key(common)                                          -          Generates public and private key pair for the user.
 
-	3. asym_encrypt(user_input,thatguyspub,mypriv)               -                       Encrypts user_input with the receiver's public key and sender's private key
+	3. asym_encrypt(user_input,thatguyspub,mypriv)              -          Encrypt user input with receiver's public key and sender's private key
 
-	4. asym_decrypt(cipher_text,locked_pad,thatguyspub,mypriv)   -                       Decrypts strings encrypted with asym_encrypt() function
+	4. asym_decrypt(cipher_text,locked_pad,thatguyspub,mypriv)  -          Decryption cipher text with sender's public key and receiver's private key
 
 
 
@@ -36,7 +37,7 @@ This is how to use this library
 
 
 -------------------------------Example script-------------------------------
-#from silver_bullet.asymcrypt import gen_common,gen_key,asym_encrypt,asym_decrypt
+#from silver_bullet.asymcrypt import gen_common,gen_key,compute_paph,asym_encrypt,asym_decrypt
 #
 #common=gen_common()
 #
@@ -83,59 +84,36 @@ def gen_key(common):
 
 
 def asym_encrypt(user_input,thatguyspub,mypriv):
-	ui_listed=list(user_input.encode())
-	pad=pad_gen(ui_listed)
-	counter=0
-	cipher_text=[]
-
-	for element in ui_listed:
-		ciphered=contain_ascii(element+pad[counter])
-		cipher_text.append(ciphered)
-		counter+=1
-
-	locked_pad=bilock(pad,thatguyspub,mypriv)
-
-	final_ct=' '.join(map(str,cipher_text))
-	final_lp=' '.join(map(str,locked_pad))
-
-	return final_ct,final_lp
+	passphrase=compute_paph(thatguyspub,mypriv)
+	cipher_text,locked_pad=sym_encrypt(user_input,passphrase)
+	return cipher_text,locked_pad
 
 
 def asym_decrypt(cipher_text,locked_pad,thatguyspub,mypriv):
-	ct_list=cipher_text.split(' ')
-	lp_list=locked_pad.split(' ')
+	passphrase=compute_paph(thatguyspub,mypriv)
+	plain_text=sym_decrypt(cipher_text,locked_pad,passphrase)
+	return plain_text
 
-	unlocked_pad=bilock(lp_list,thatguyspub,mypriv)
 
-	plain_text=[]
-	counter=0
+#===========================================================================
 
-	for element in ct_list:
-		deciphered=contain_ascii(int(element)-unlocked_pad[counter])
-		plain_text.append(deciphered)
-		counter+=1
 
-	return bytes(plain_text).decode()
-
-#===================================================================================
-
-def bilock(tolock,pubkey,privkey):
+def compute_paph(pubkey,privkey):
 	publist=pubkey.split(' ')
 	privlist=privkey.split(' ')
-	locked_list=tolock
 	counter=0
+	paph=[]
 
 	for element in publist:
-		random.seed(int(element)^int(privlist[counter])^int(privlist[counter+5]))
-		looper=0
-		ll=[]
+		resulting=sha1(str(int(element)^int(privlist[counter])^int(privlist[counter+5])).encode()).hexdigest()
 
-		for num in locked_list:
-			locked=int(num)^random.randrange(ascii_value)
-			ll.append(locked)
-			looper+=1
+		if counter<4:
+			paph.append(resulting)
+		else:
+			sliced=list(''.join(paph))
+			random.seed(resulting)
+			random.shuffle(sliced)
 
-		locked_list=ll
 		counter+=1
 
-	return locked_list
+	return ''.join(sliced)

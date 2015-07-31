@@ -1,4 +1,6 @@
+import zlib
 import random
+from hashlib import sha1
 
 from silver_bullet.TRNG import trng
 
@@ -11,31 +13,12 @@ List of functions:
 
 	2. sym_decrypt(cipher_text, locked_pad, passphrase)     -              Decrypt the cipher text encrypted with SBET.
 	                                                                       It requires cipher text, locked pad, and passphrase.
-
-	3. sym_encrypt_core(ui_encoded, passphrase)             -              Same with sym_encrypt(), but takes encoded string
-	                                                                       instead of normal string
-
-	4. sym_decrypt_core(cipher_text,locked_pad,passphrase)  -              Same with sym_decrypt(), but takes encoded string
-	                                                                       instead of normal string
 '''
 
 
 def sym_encrypt(user_input,passphrase):
-	encoded=user_input.encode()
-	cipher_text,locked_pad=sym_encrypt_core(encoded, passphrase)
-
-	return cipher_text,locked_pad
-
-
-def sym_decrypt(cipher_text,locked_pad,passphrase):
-	byted_pt=sym_decrypt_core(cipher_text,locked_pad,passphrase)
-	plain_text=byted_pt.decode()
-
-	return plain_text
-
-
-def sym_encrypt_core(ui_encoded,passphrase):
-	ui_listed=list(ui_encoded)
+	compressed=zlib.compress(user_input.encode())
+	ui_listed=list(compressed)
 	pad=pad_gen(ui_listed)
 	
 	ct=[]
@@ -60,7 +43,7 @@ def sym_encrypt_core(ui_encoded,passphrase):
 	return cipher_text, locked_pad
 
 
-def sym_decrypt_core(cipher_text,locked_pad,passphrase):
+def sym_decrypt(cipher_text,locked_pad,passphrase):
 	ct=cipher_text.split(' ')
 	lp=locked_pad.split(' ')
 
@@ -81,7 +64,10 @@ def sym_decrypt_core(cipher_text,locked_pad,passphrase):
 		pt.append(deciphered)
 		counter+=1
 
-	return bytes(pt)
+	byted=bytes(pt)
+	decompressed=zlib.decompress(byted).decode()
+
+	return decompressed
 
 #=====================================================================================================
 
@@ -97,30 +83,21 @@ def contain_ascii(value):
 		return value
 
 
-def decide_type(value):
-	int_or_str=trng()%2
-
-	if int_or_str is 0:
-		return int(value)
-	else:
-		return str(value)
-
-
 def pad_gen(ui_listed):
 	pad=[0 for num in range(len(ui_listed))]
 
 	for counter in range(10):
 		op_decider=trng()%3
-		actual_seed=trng()
+		actual_seed=sha1(str(trng()).encode()).hexdigest()
 
 		if op_decider is 0:
-			random.seed(decide_type(actual_seed))
+			random.seed(actual_seed)
 			pad=[contain_ascii(element+random.randrange(ascii_value)) for element in pad]
 		elif op_decider is 1:
-			random.seed(decide_type(actual_seed))
+			random.seed(actual_seed)
 			pad=[contain_ascii(element-random.randrange(ascii_value)) for element in pad]
 		elif op_decider is 2:
-			random.seed(decide_type(actual_seed))
+			random.seed(actual_seed)
 			pad=[element^random.randrange(ascii_value) for element in pad]		
 
 	return pad
