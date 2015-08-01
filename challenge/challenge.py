@@ -39,7 +39,7 @@ def decryptor():
 			opener.write(deciphered)
 	
 	except:
-		deciphered=''.join([trng() for c in range(1000)])
+		deciphered=''.join(map(str,[trng() for c in range(1000)]))
 
 		with open("Decrypted", 'w') as opener:
 			opener.write(deciphered)	
