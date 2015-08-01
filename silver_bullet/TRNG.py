@@ -24,7 +24,7 @@ def trng():
 #===============================================================================
 
 def generate():
-	num_gen='silver_bullet/number.num'
+	num_gen='number.num'
 
 	def zero():
 		with open (num_gen, 'a') as opener:
