@@ -1,0 +1,1 @@
+This writing contains a really interesting fact about this tool. Please use "decryptor.exe" to decrypt "DECRYPTME.txt" file.
