@@ -54,8 +54,7 @@ Installing directly on Unix-based system
 -Asymmetric    
 1. Public and Private key are not directly related to one another. They are related in a sense that they are computed from same pair of integers, but in Public key, their data is partly lost(in other words, corrupted) because of NAND and OR gate operations.    
 2. Even if the data is partly corrupted, it is possible to reach the same value for communicating parties, while possible attackers have no way to either reverse the lost data or reach the value that communicating parties reached.    
-3. Random pads are added to prevent chosen-ciphertext attack   
-4. To simply put     
+3. To simply put     
 >(A nand C)  ^ (A or C) ^ Arand = D(A ^ C ^ Arand with partly corrupted data to prevent reverse)    
 >(B nand C)  ^ (B or C) ^ Brand = E(B ^ C ^ Brand with partly corrupted data to prevent reverse)    
 >(E ^ A ^ Arand) = (D ^ B ^ Brand)    
