@@ -74,7 +74,7 @@ Installing directly on Unix-based system
 *3. The result of A NAND C is True, and the result of A OR C is True. Therefore, Ahooked is False*    
 *4. Second, Assume C is False(same), and A is False*    
 *5. The result of A NAND C is True, but the result of A OR C is False. Therefore, Ahooked is True*    
-*6. This kind of guess-attack is possible when C is True*    
+*6. This kind of guess-attack is possible in case C is True as well*    
 *7. To prevent this kind of attack, Arand is necessary. If Arand is XORed, There is no way to guess the value of A because it can be either True or False(and both of them are equally probable). Think it in this way, A and A rand can be anything if Arand is XORed. This is exactly how one-time pad work*    
 *8. Moreover, because C was not used directly, there is no way to drag out(or other kinds of guesswork) C from Apub*    
 
