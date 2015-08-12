@@ -67,7 +67,8 @@ Installing directly on Unix-based system
 >(A nand C)  ^ (A or C) ^ Arand = Apub    
 >(B nand C)  ^ (B or C) ^ Brand = Bpub     
 >(Bpub ^ A ^ Arand) = (Apub ^ B ^ Brand)    
-*How does this look like?*
+
+*How does this look like?*    
 
 
 #License    
