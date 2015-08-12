@@ -68,7 +68,7 @@ Installing directly on Unix-based system
 >(B nand C)  ^ (B or C) ^ Brand = Bpub     
 >(Bpub ^ A ^ Arand) = (Apub ^ B ^ Brand)    
 
-*If Ahooked was revealed, how an attacker can guess A from Ahooked*    
+*-If Ahooked was revealed, how an attacker can guess A from Ahooked?*    
 *Before start, Let's simplify things to bit-level. Everything is True or False, not integer*    
 *Firstly, Assume C is False, and A is True.*    
 *The result of A NAND C is True, and the result of A OR C is True. Therefore, Ahooked is False*    
