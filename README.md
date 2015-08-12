@@ -63,6 +63,7 @@ Installing directly on Unix-based system
 9. "Person A" implements XOR gate operation of Bpub, A, and Arand.    
 10. "Person B" implements XOR gate operation of Apub, B, and Brand.    
 11. Now, A and B have the same number secretly.    
+12. This is simplified equatioin    
 >(A nand C)  ^ (A or C) ^ Arand = Apub    
 >(B nand C)  ^ (B or C) ^ Brand = Bpub     
 >(Bpub ^ A ^ Arand) = (Apub ^ B ^ Brand)    
