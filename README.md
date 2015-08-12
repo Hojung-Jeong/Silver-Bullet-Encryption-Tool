@@ -69,14 +69,14 @@ Installing directly on Unix-based system
 >(Bpub ^ A ^ Arand) = (Apub ^ B ^ Brand)    
 
 *-If Ahooked was revealed, how an attacker can guess A from Ahooked?*    
-*Before start, Let's simplify things to bit-level. Everything is True or False, not integer*    
-*Firstly, Assume C is False, and A is True.*    
-*The result of A NAND C is True, and the result of A OR C is True. Therefore, Ahooked is False*    
-*Second, Assume C is False(same), and A is False*    
-*The result of A NAND C is True, but the result of A OR C is False. Therefore, Ahooked is True*    
-*This kind of guess-attack is possible when C is True*    
-*To prevent this kind of attack, Arand is necessary. If Arand is XORed, There is no way to guess the value of A because it can be either True or False(and both of them are equally probable). Think it in this way, A and A rand can be anything if Arand is XORed. This is exactly how one-time pad work*    
-*Moreover, because C was not used directly, there is no way to drag out(or other kinds of guesswork) C from Apub*    
+*1. Before start, Let's simplify things to bit-level. Everything is True or False, not integer*    
+*2. Firstly, Assume C is False, and A is True.*    
+*3. The result of A NAND C is True, and the result of A OR C is True. Therefore, Ahooked is False*    
+*4. Second, Assume C is False(same), and A is False*    
+*5. The result of A NAND C is True, but the result of A OR C is False. Therefore, Ahooked is True*    
+*6. This kind of guess-attack is possible when C is True*    
+*7. To prevent this kind of attack, Arand is necessary. If Arand is XORed, There is no way to guess the value of A because it can be either True or False(and both of them are equally probable). Think it in this way, A and A rand can be anything if Arand is XORed. This is exactly how one-time pad work*    
+*8. Moreover, because C was not used directly, there is no way to drag out(or other kinds of guesswork) C from Apub*    
 
 
 #License    
