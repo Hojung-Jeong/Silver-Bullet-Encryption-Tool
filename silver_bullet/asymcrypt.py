@@ -1,11 +1,3 @@
-import random
-from hashlib import sha1
-
-from silver_bullet.TRNG import trng
-from silver_bullet.bitwise import nand
-from silver_bullet.symcrypt import sym_encrypt,sym_decrypt
-
-
 '''
 Lis of functions:
 	1. gen_common()                                             -          Generates publishable number(That number is called common)
@@ -15,9 +7,9 @@ Lis of functions:
 	3. asym_encrypt(user_input,thatguyspub,mypriv)              -          Encrypt user input with receiver's public key and sender's private key
 
 	4. asym_decrypt(cipher_text,locked_pad,thatguyspub,mypriv)  -          Decryption cipher text with sender's public key and receiver's private key
-
-
-
+'''
+#==========================================================================================================
+'''
 This is how to use this library
 
 1. Suppose there are Henry, Marina, and Tom. Henry and Marina want to communicate secretly, and Tom is sniffing the communication channel they are using
@@ -35,7 +27,6 @@ This is how to use this library
 7. Now, secure communication between Henry and Marina succeeded without being sniffed by Tom.
 
 
-
 -------------------------------Example script-------------------------------
 #from silver_bullet.asymcrypt import gen_common,gen_key,compute_paph,asym_encrypt,asym_decrypt
 #
@@ -51,10 +42,18 @@ This is how to use this library
 #print(asym_decrypt(cipher_text,locked_pad,Bpub,Apriv))
 
 
-
 *For technical details, please read README.md file*
-
 '''
+
+
+# CODE ========================================================================
+
+import random
+from hashlib import sha1
+
+from silver_bullet.TRNG import trng
+from silver_bullet.bitwise import nand
+from silver_bullet.symcrypt import sym_encrypt,sym_decrypt
 
 
 minimum=1073741824
@@ -83,21 +82,6 @@ def gen_key(common):
 	return joined_pub,joined_priv
 
 
-def asym_encrypt(user_input,thatguyspub,mypriv):
-	passphrase=compute_paph(thatguyspub,mypriv)
-	cipher_text,locked_pad=sym_encrypt(user_input,passphrase)
-	return cipher_text,locked_pad
-
-
-def asym_decrypt(cipher_text,locked_pad,thatguyspub,mypriv):
-	passphrase=compute_paph(thatguyspub,mypriv)
-	plain_text=sym_decrypt(cipher_text,locked_pad,passphrase)
-	return plain_text
-
-
-#===========================================================================
-
-
 def compute_paph(pubkey,privkey):
 	publist=pubkey.split(' ')
 	privlist=privkey.split(' ')
@@ -117,3 +101,15 @@ def compute_paph(pubkey,privkey):
 		counter+=1
 
 	return ''.join(sliced)
+
+
+def asym_encrypt(user_input,thatguyspub,mypriv):
+	passphrase=compute_paph(thatguyspub,mypriv)
+	cipher_text,locked_pad=sym_encrypt(user_input,passphrase)
+	return cipher_text,locked_pad
+
+
+def asym_decrypt(cipher_text,locked_pad,thatguyspub,mypriv):
+	passphrase=compute_paph(thatguyspub,mypriv)
+	plain_text=sym_decrypt(cipher_text,locked_pad,passphrase)
+	return plain_text

@@ -1,4 +1,10 @@
-
+'''
+List of functions:
+	1. nor(int1, int2)            -           Perform NOR gate operation of int1 and int2
+	
+	2. nand(int1, int2)           -           Perform NAND gate operation of int1 and int2
+'''
+#=========================================================================================
 '''
 -I hope python contains bitwise NOR and NAND as default bitwise operators.
 They are essential in silver bullet asymmetric encryption scheme.
@@ -6,14 +12,10 @@ They are essential in silver bullet asymmetric encryption scheme.
 -I tried to use bit flipping(~), but because of two's complement(which should've not be implemented in this way in python), I couldn't use it.
 
 -Finally, I blame lack of bitwise NOR and NAND on archaic C. Python should've evolved as an independent language, not interpreted through in C by default
-
-List of functions:
-	1. nor(int1, int2)            -           Perform NOR gate operation of int1 and int2
-	
-	2. nand(int1, int2)           -           Perform NAND gate operation of int1 and int2
-
 '''
 
+
+# CODE ========================================================================
 
 def nor(int1, int2):
 	ored=int1|int2

@@ -1,6 +1,3 @@
-from threading import Thread
-
-
 '''
 List of functions:
 	
@@ -14,14 +11,11 @@ List of functions:
 
 '''
 
-def trng():
-	while  True:
-		try:
-			return generate()
-		except:
-			pass
 
-#===============================================================================
+# CODE ========================================================================
+
+from threading import Thread
+
 
 def generate():
 	num_gen='number.num'
@@ -179,3 +173,11 @@ def generate():
 		opener.write('')
 
 	return int(reader)
+
+
+def trng():
+	while  True:
+		try:
+			return generate()
+		except:
+			pass

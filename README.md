@@ -52,12 +52,21 @@ Installing directly on Unix-based system
 3. Plain text is compressed at first to preven chosen-ciphertext attack
 
 -Asymmetric    
-1. Public and Private key are not directly related to one another. They are related in a sense that they are computed from same pair of integers, but in Public key, their data is partly lost(in other words, corrupted) because of NAND and OR gate operations.    
-2. Even if the data is partly corrupted, it is possible to reach the same value for communicating parties, while possible attackers have no way to either reverse the lost data or reach the value that communicating parties reached because of the random pad.    
-3. To simply put     
->(A nand C)  ^ (A or C) ^ Arand = D(A ^ C ^ Arand with partly corrupted data to prevent reverse)    
->(B nand C)  ^ (B or C) ^ Brand = E(B ^ C ^ Brand with partly corrupted data to prevent reverse)    
->(E ^ A ^ Arand) = (D ^ B ^ Brand)    
+1. Firstly, there is a common number C.    
+2. "Person A" chooses A and Arand randomly respectively.   
+3. "Person B" chooses B and Brand randomly respectively.   
+4. "Person A" implements NAND and OR gate bitwise operations(or NOR and AND if they want, even if there is no advantage or disadvantage related to it) of A and C. Then, implement XOR gate operation of the resulting values. Let's call it Ahooked.    
+5. "Person B" implements NAND and OR gate bitwise operations(or NOR and AND if they want, even if there is no advantage or disadvantage related to it) of B and C. Then, implement XOR gate operation of the resulting values. Let's call it Bhooked.    
+6. "Person A" implements XOR gate operations of Arand and Ahooked. Let's call the result of it Apub.    
+7. "Person B" implements XOR gate operations of Brand and Bhooked. Let's call the result of it Apub.    
+8. THIS IS THE CORE IDEA!: For an attacker, there is no way to guess the value of A, B, Arand, and Brand since they are just randomly chosen. The attacker is able to guess the value of A if Ahooked is known(Please read my explanations below), but it is impossible to do so as Ahooked is XORed with another totally random number. Same one-time-pad-like dilemma exists in the case of B and Bpub as well.    
+9. "Person A" implements XOR gate operation of Bpub, A, and Arand.    
+10. "Person B" implements XOR gate operation of Apub, B, and Brand.    
+11. Now, A and B have the same number secretly.    
+>(A nand C)  ^ (A or C) ^ Arand = Apub    
+>(B nand C)  ^ (B or C) ^ Brand = Bpub     
+>(Bpub ^ A ^ Arand) = (Apub ^ B ^ Brand)    
+
 
 
 #License    
