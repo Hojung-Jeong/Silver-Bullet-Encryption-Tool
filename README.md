@@ -53,30 +53,20 @@ Installing directly on Unix-based system
 
 -Asymmetric    
 1. Firstly, there is a common number C.    
-2. "Person A" chooses A and Arand randomly respectively.   
-3. "Person B" chooses B and Brand randomly respectively.   
-4. "Person A" implements NAND and OR gate bitwise operations(or NOR and AND if they want, even if there is no advantage or disadvantage related to it) of A and C. Then, implement XOR gate operation of the resulting values. Let's call it Ahooked.    
-5. "Person B" implements NAND and OR gate bitwise operations(or NOR and AND if they want, even if there is no advantage or disadvantage related to it) of B and C. Then, implement XOR gate operation of the resulting values. Let's call it Bhooked.    
-6. "Person A" implements XOR gate operations of Arand and Ahooked. Let's call the result of it Apub.    
-7. "Person B" implements XOR gate operations of Brand and Bhooked. Let's call the result of it Apub.    
-8. THIS IS THE CORE IDEA!: For an attacker, there is no way to guess the value of A, B, Arand, and Brand since they are just randomly chosen. The attacker is able to guess the value of A if Ahooked is known(Please read my explanations below), but it is impossible to do so as Ahooked is XORed with another totally random number. Same one-time-pad-like dilemma exists in the case of B and Bpub as well.    
-9. "Person A" implements XOR gate operation of Bpub, A, and Arand.    
-10. "Person B" implements XOR gate operation of Apub, B, and Brand.    
-11. Now, A and B have the same number secretly.    
+2. "Person A" chooses A1, A2, Arand randomly respectively.   
+3. "Person B" chooses B1, B2, Brand randomly respectively.   
+4. "Person A" implements SAME gate operation(XNOR gate operation) of A1 and Common, and A2 and Common. Let's call them ASamed1 and ASamed2 respectively.      
+5. "Person B" implements SAME gate operation(XNOR gate operation) of B1 and Common, and B2 and Common. Let's call them BSamed1 and BSamed2 respectively.      
+6. "Person A" implements XOR gate operations of ASamed1, ASamed2, and Arand. Let's call the result of it Apub.    
+7. "Person B" implements XOR gate operations of BSamed1, BSamed2, and Brand. Let's call the result of it Bpub.    
+8. THIS IS THE CORE IDEA!: For an attacker, there is no way to guess the value of A1, A2, Arand, B1, B2, and Brand since they are hiding one another. I call it "Encrypted in 3D way" because basically, each key element makes it impossible to guess another one.    
+9. "Person A" implements XOR gate operation of Bpub, A1, A2, and Arand.    
+10. "Person B" implements XOR gate operation of Apub, B1, B2, and Brand.    
+11. Now, A and B have the same secret number.    
 12. This is simplified equatioin    
->(A nand C)  ^ (A or C) ^ Arand = Apub    
->(B nand C)  ^ (B or C) ^ Brand = Bpub     
->(Bpub ^ A ^ Arand) = (Apub ^ B ^ Brand)    
-
-*-If Ahooked was revealed, how an attacker can guess A from Ahooked?*    
-*1. Before start, Let's simplify things to bit-level. Everything is True or False, not integer*    
-*2. Firstly, Assume C is False, and A is True.*    
-*3. The result of A NAND C is True, and the result of A OR C is True. Therefore, Ahooked is False*    
-*4. Second, Assume C is False(same), and A is False*    
-*5. The result of A NAND C is True, but the result of A OR C is False. Therefore, Ahooked is True*    
-*6. This kind of guess-attack is possible in case C is True as well*    
-*7. To prevent this kind of attack, Arand is necessary. If Arand is XORed, There is no way to guess the value of A because it can be either True or False(and both of them are equally probable). This is exactly how one-time pad work*    
-*8. Moreover, because C was not used directly, there is no way to drag out(or other kinds of guesswork) C from Apub*    
+>(A1 same C)  ^ (A2 same C) ^ Arand = Apub    
+>(B1 same C)  ^ (B2 same C) ^ Brand = Bpub     
+>(Bpub ^ A1 ^ A2 ^ Arand) = (Apub ^ B1 ^ B2 ^ Brand)     
 
 
 #License    

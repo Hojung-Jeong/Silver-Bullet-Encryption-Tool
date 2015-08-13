@@ -52,11 +52,11 @@ import random
 from hashlib import sha1
 
 from silver_bullet.TRNG import trng
-from silver_bullet.bitwise import nand
+from silver_bullet.bitwise import same
 from silver_bullet.symcrypt import sym_encrypt,sym_decrypt
 
 
-minimum=1073741824
+minimum=140564819207303340847894502572032
 
 
 def gen_common():
@@ -64,16 +64,14 @@ def gen_common():
 
 
 def gen_key(common):
-	myprivlist=[(trng()%minimum)+minimum for counter in range(10)]
+	myprivlist=[(trng()%minimum)+minimum for counter in range(9)]
 	mypublist=[]
 
-	for counter in range(5):
-		hooker=myprivlist[counter]
-		randomiser=myprivlist[counter+5]
-
-		hnandc=nand(hooker,common)
-		horc=hooker|common
-		pubthis=hnandc^horc^randomiser
+	for counter in range(3):
+		samed1=same(myprivlist[counter],common)
+		samed2=same(myprivlist[counter+3],common)
+		randomiser=myprivlist[counter+6]
+		pubthis=samed1^samed2^randomiser
 		mypublist.append(pubthis)
 
 	joined_pub=' '.join(map(str,mypublist))
@@ -89,9 +87,10 @@ def compute_paph(pubkey,privkey):
 	paph=[]
 
 	for element in publist:
-		resulting=sha1(str(int(element)^int(privlist[counter])^int(privlist[counter+5])).encode()).hexdigest()
+		secret_num=int(element)^int(privlist[counter])^int(privlist[counter+3])^int(privlist[counter+6])
+		resulting=sha1(str(secret_num).encode()).hexdigest()
 
-		if counter<4:
+		if counter<2:
 			paph.append(resulting)
 		else:
 			sliced=list(''.join(paph))
