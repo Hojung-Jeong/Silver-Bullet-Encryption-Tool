@@ -53,20 +53,20 @@ Installing directly on Unix-based system
 
 -Asymmetric    
 1. Firstly, there is a common number C.    
-2. "Person A" chooses A1, A2, Arand randomly respectively.   
-3. "Person B" chooses B1, B2, Brand randomly respectively.   
-4. "Person A" implements SAME gate operation(XNOR gate operation) of A1 and Common, and A2 and Common. Let's call them ASamed1 and ASamed2 respectively.      
-5. "Person B" implements SAME gate operation(XNOR gate operation) of B1 and Common, and B2 and Common. Let's call them BSamed1 and BSamed2 respectively.      
-6. "Person A" implements XOR gate operations of ASamed1, ASamed2, and Arand. Let's call the result of it Apub.    
-7. "Person B" implements XOR gate operations of BSamed1, BSamed2, and Brand. Let's call the result of it Bpub.    
-8. THIS IS THE CORE IDEA!: For an attacker, there is no way to guess the value of A1, A2, Arand, B1, B2, and Brand since they are hiding one another. I call it "Encrypted in 3D way" because basically, each key element makes it impossible to guess another one.    
-9. "Person A" implements XOR gate operation of Bpub, A1, A2, and Arand.    
-10. "Person B" implements XOR gate operation of Apub, B1, B2, and Brand.    
-11. Now, A and B have the same secret number.    
+2. "Person A" chooses A and Arand randomly respectively.   
+3. "Person B" chooses B and Brand randomly respectively.   
+4. "Person A" implements AND and OR gate operation of A and Common. Let's call them Aanded and Aored respectively.      
+5. "Person B" implements AND and OR gate operation of B and Common. Let's call them Banded and Bored respectively.      
+6. "Person A" implements XOR gate operations of Aanded, Aored, and Arand. Let's call the result of it Apub.    
+7. "Person B" implements XOR gate operations of Banded, Bored, and Brand. Let's call the result of it Bpub.    
+8. THIS IS THE CORE IDEA!: For an attacker, there is no way to guess the value of A, B, Arand, or Brand because he/she has no clue about them with C from Apub or Bpub    
+9. "Person A" implements XOR gate operation of Bpub, A, Arand.    
+10. "Person B" implements XOR gate operation of Apub, B, and Brand.    
+11. Now, "Person A" and "Person B" have the same secret number.    
 12. This is simplified equatioin    
->(A1 same C)  ^ (A2 same C) ^ Arand = Apub    
->(B1 same C)  ^ (B2 same C) ^ Brand = Bpub     
->(Bpub ^ A1 ^ A2 ^ Arand) = (Apub ^ B1 ^ B2 ^ Brand)     
+>(A1 & C)  ^ (A2 | C) ^ Arand = Apub    
+>(B1 & C)  ^ (B2 | C) ^ Brand = Bpub     
+>(Bpub ^ A ^ Arand) = (Apub ^ B ^ Brand)     
 
 
 #License    
