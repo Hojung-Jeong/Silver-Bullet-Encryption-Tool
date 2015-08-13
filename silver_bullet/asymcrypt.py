@@ -52,10 +52,12 @@ import random
 from hashlib import sha1
 
 from silver_bullet.TRNG import trng
+from silver_bullet.bitwise import same
 from silver_bullet.symcrypt import sym_encrypt,sym_decrypt
 
 
-minimum=140564819207303340847894502572032
+minimum=5070602400912917605986812821504
+
 
 
 def gen_common():
@@ -67,10 +69,10 @@ def gen_key(common):
 	mypublist=[]
 
 	for counter in range(3):
-		anded=myprivlist[counter]&common
-		ored=myprivlist[counter+3]|common
+		samed1=same(myprivlist[counter],common)
+		samed2=same(myprivlist[counter+3],common)
 		randomiser=myprivlist[counter+6]
-		pubthis=anded^ored^randomiser
+		pubthis=samed1^samed2^randomiser
 		mypublist.append(pubthis)
 
 	joined_pub=' '.join(map(str,mypublist))
