@@ -24,21 +24,7 @@ Installing directly on Unix-based system
 >plain_text = sym_decrypt ( plain_text, locked_pad,  passphrase )  
 
 #Asymmetric encryption    
--Generate common    
->from silver_bullet.asymcrypt import gen_comon   
->common=gen_common()   
-
--Generate public and private keys    
->from silver_bullet.asymcrypt import gen_key    
->pubkey, privkey = gen_key( gen_key(common) )    
-
--Encrypt    
->from silver_bullet.asymcrypt import asym_encrypt    
->cipher_text, locked_pad = asym_encrypt(user_input, thatguyspub, mypriv)    
-
--Decrypt    
->from silver_bullet.asymcrypt import asym_decrypt    
->plain_text = asym_decrypt(cipher_text, locked_pad, thatguyspub, mypriv)    
+This one is insecure     
 
 #Generate random numbers    
 >from silver_bullet.TRNG import trng    
@@ -52,21 +38,7 @@ Installing directly on Unix-based system
 3. Plain text is compressed at first to preven chosen-ciphertext attack
 
 -Asymmetric    
-1. Firstly, there is a common number C.    
-2. "Person A" chooses A1, A2, Arand randomly respectively.   
-3. "Person B" chooses B1, B2, Brand randomly respectively.   
-4. "Person A" implements SAME gate operation(XNOR gate operation) of A1 and Common, and A2 and Common. Let's call them ASamed1 and ASamed2 respectively.      
-5. "Person B" implements SAME gate operation(XNOR gate operation) of B1 and Common, and B2 and Common. Let's call them BSamed1 and BSamed2 respectively.      
-6. "Person A" implements XOR gate operations of ASamed1, ASamed2, and Arand. Let's call the result of it Apub.    
-7. "Person B" implements XOR gate operations of BSamed1, BSamed2, and Brand. Let's call the result of it Bpub.    
-8. THIS IS THE CORE IDEA!: For an attacker, there is no way to guess the value of A1, A2, Arand, B1, B2, and Brand since they are hiding one another. I call it "Encrypted in 3D way" because basically, each key element makes it impossible to guess another one.    
-9. "Person A" implements XOR gate operation of Bpub, A1, A2, and Arand.    
-10. "Person B" implements XOR gate operation of Apub, B1, B2, and Brand.    
-11. Now, A and B have the same secret number.    
-12. This is simplified equatioin    
->(A1 same C)  ^ (A2 same C) ^ Arand = Apub    
->(B1 same C)  ^ (B2 same C) ^ Brand = Bpub     
->(Bpub ^ A1 ^ A2 ^ Arand) = (Apub ^ B1 ^ B2 ^ Brand)     
+This one is insecure    
 
 
 #License    
