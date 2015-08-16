@@ -24,7 +24,7 @@ Installing directly on Unix-based system
 >plain_text = sym_decrypt ( plain_text, locked_pad,  passphrase )  
 
 #Asymmetric encryption    
-This one is insecure     
+Under security patching     
 
 #Generate random numbers    
 >from silver_bullet.TRNG import trng    
