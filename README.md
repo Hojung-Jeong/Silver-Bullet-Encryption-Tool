@@ -38,7 +38,7 @@ This one is insecure
 3. Plain text is compressed at first to preven chosen-ciphertext attack
 
 -Asymmetric    
-This one is insecure    
+Under security patching    
 
 
 #License    
