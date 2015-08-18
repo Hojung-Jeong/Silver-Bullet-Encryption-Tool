@@ -1,13 +1,10 @@
 '''
-List of functions:
-	
-	1. trng()             -              A true random number generator utilising data corruption. Data corruption occurs
-	                                           in number.num file (specified in variable num_gen).
+>List of functions:
+	1. trng()	-	A true random number generator utilising data corruption. Data corruption occurs in number.num file (specified in variable num_gen).
 
 
-                       ---If you want to compile this script,                       
-                       		***This file MUST be compiled in speical way to ensure right behaviour!!!*****
-                        	***That "special way" is providing an environment guaranteeing thread racing***
+>In case you want to compile this script
+This file MUST be compiled in a way to make data corruption. If it isn't compiled that way, security can be easily breached.
 
 '''
 
