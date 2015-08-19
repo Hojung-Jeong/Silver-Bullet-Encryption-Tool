@@ -9,7 +9,6 @@
 
 import zlib
 import random
-from hashlib import sha1
 from silver_bullet.TRNG import trng
 
 
