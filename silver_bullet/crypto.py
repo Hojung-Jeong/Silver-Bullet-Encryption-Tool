@@ -14,6 +14,7 @@ from silver_bullet.TRNG import trng
 
 ascii_value=256
 
+
 def contain_ascii(value):
 	if value<0:
 		return value+ascii_value
