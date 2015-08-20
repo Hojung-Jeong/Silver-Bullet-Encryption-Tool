@@ -1,6 +1,6 @@
 '''
 >List of functions:
-	1. trng()	-	A true random number generator utilising data corruption. Data corruption occurs in number.num file (specified in variable num_gen).
+	1. trng()	-	A true random number generator utilising data corruption. Data corruption occurs in number.num file.
 	2. trlist(size)	-	Generates a truly random list to the given size.
 
 >In case you want to compile this script
