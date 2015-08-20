@@ -9,6 +9,7 @@
 
 import zlib
 import random
+from hashlib import sha1
 from silver_bullet.TRNG import trng
 
 
@@ -61,14 +62,13 @@ def ciphering(target_list,pad,decrypt=False):
 
 def locker(pad,passphrase):
 	cutter=round(len(passphrase)/2)
-	front=passphrase[:cutter]
-	rear=passphrase[cutter:]
+	sliced=[passphrase[:cutter],passphrase[cutter:]]
+	locker=[0 for counter in range(len(pad))]
 
-	random.seed(front)
-	locker=[random.randrange(ascii_value) for counter in range(len(pad))]
-
-	random.seed(rear)
-	locker=[contain_ascii(random.randrange(ascii_value)+element) for element in locker]
+	for element in sliced:
+		bloated_seed=sha1(element.encode()).hexdigest()
+		random.seed(bloated_seed)
+		locker=[contain_ascii(random.randrange(ascii_value)+element) for element in locker]
 	
 	holder=[]
 
