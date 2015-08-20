@@ -10,40 +10,11 @@
 import zlib
 import random
 from hashlib import sha1
-from silver_bullet.TRNG import trng
+from silver_bullet.TRNG import trlist
+from silver_bullet.contain_value import contain
 
 
 ascii_value=256
-
-
-def contain_ascii(value):
-	if value<0:
-		return value+ascii_value
-
-	elif value>=ascii_value:
-		return value-ascii_value
-	else:
-		return value
-
-
-def gen_pad(ui_listed):
-	pad=[0 for num in range(len(ui_listed))]
-
-	for counter in range(10):
-		op_decider=trng()%3
-		actual_seed=sha1(str(trng()).encode()).hexdigest()
-
-		if op_decider is 0:
-			random.seed(actual_seed)
-			pad=[contain_ascii(element+random.randrange(ascii_value)) for element in pad]
-		elif op_decider is 1:
-			random.seed(actual_seed)
-			pad=[contain_ascii(element-random.randrange(ascii_value)) for element in pad]
-		elif op_decider is 2:
-			random.seed(actual_seed)
-			pad=[element^random.randrange(ascii_value) for element in pad]
-
-	return pad
 
 
 def ciphering(target_list,pad,decrypt=False):
@@ -51,9 +22,9 @@ def ciphering(target_list,pad,decrypt=False):
 
 	for counter in range(len(pad)):
 		if decrypt==False:
-			operated=contain_ascii(target_list[counter]+pad[counter])
+			operated=contain(target_list[counter]+pad[counter],ascii_value)
 		else:
-			operated=contain_ascii(int(target_list[counter])-pad[counter])
+			operated=contain(int(target_list[counter])-pad[counter],ascii_value)
 
 		result.append(operated)
 
@@ -62,13 +33,13 @@ def ciphering(target_list,pad,decrypt=False):
 
 def locker(pad,passphrase):
 	cutter=round(len(passphrase)/2)
-	sliced=[passphrase[:cutter],passphrase[cutter:]]
+	splited=[passphrase[:cutter],passphrase[cutter:]]
 	locker=[0 for counter in range(len(pad))]
 
-	for element in sliced:
+	for element in splited:
 		bloated_seed=sha1(element.encode()).hexdigest()
 		random.seed(bloated_seed)
-		locker=[contain_ascii(random.randrange(ascii_value)+element) for element in locker]
+		locker=[contain(random.randrange(ascii_value)+element,ascii_value) for element in locker]
 	
 	holder=[]
 
@@ -82,7 +53,7 @@ def locker(pad,passphrase):
 def encrypt(user_input,passphrase):
 	compressed=zlib.compress(user_input.encode())
 	ui_listed=list(compressed)
-	pad=gen_pad(ui_listed)
+	pad=trlist(len(ui_listed),ascii_value)
 
 	ct=ciphering(ui_listed,pad)
 	lp=locker(pad,passphrase)

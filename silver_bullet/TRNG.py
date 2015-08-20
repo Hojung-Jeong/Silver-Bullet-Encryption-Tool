@@ -1,7 +1,7 @@
 '''
 >List of functions:
 	1. trng()	-	A true random number generator utilising data corruption. Data corruption occurs in number.num file (specified in variable num_gen).
-
+	2. trlist(size)	-	Generates a truly random list to the given size.
 
 >In case you want to compile this script
 This file MUST be compiled in a way to make data corruption. If it isn't compiled that way, security can be easily breached.
@@ -11,7 +11,10 @@ This file MUST be compiled in a way to make data corruption. If it isn't compile
 
 # CODE ========================================================================
 
+import random
+from hashlib import sha1
 from threading import Thread
+from silver_bullet.contain_value import contain
 
 
 def generate():
@@ -178,3 +181,23 @@ def trng():
 			return generate()
 		except:
 			pass
+
+
+def trlist(size,limit):
+	pad=[0 for num in range(size)]
+
+	for counter in range(10):
+		op_decider=trng()%3
+		actual_seed=sha1(str(trng()).encode()).hexdigest()
+
+		if op_decider is 0:
+			random.seed(actual_seed)
+			pad=[contain(element+random.randrange(limit),limit) for element in pad]
+		elif op_decider is 1:
+			random.seed(actual_seed)
+			pad=[contain(element-random.randrange(limit),limit) for element in pad]
+		elif op_decider is 2:
+			random.seed(actual_seed)
+			pad=[element^random.randrange(limit) for element in pad]
+
+	return pad
