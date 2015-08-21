@@ -44,8 +44,8 @@ from silver_bullet.TRNG import trlist
 from silver_bullet.crypto import encrypt,decrypt
 
 
-numofdigit=9
-rounds=20
+numofdigit=20
+rounds=9
 test_text="Tadah!!!"
 
 
@@ -81,7 +81,7 @@ def shuffleit(toshuffle,passphrase):
 
 	for counter in range(rounds):
 		start=counter*numofdigit
-		target=toshuffle[start:start+9]
+		target=toshuffle[start:start+numofdigit]
 		tlist=list(target)
 		random.seed(passphrase)
 		random.shuffle(tlist)
