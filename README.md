@@ -24,7 +24,16 @@ Installing directly on Unix-based system
 >plain_text = decrypt ( cipher_text, locked_pad,  passphrase )  
 
 #Key exchange protocol    
-A brilliant way was discovered! It's under work!!!!     
+-Demonstration  
+>while True:  
+>	rawlist=shuffleit(rawlist,"Now, it's time for a string")  
+>	rawlist=shuffleit(rawlist,"Isn't it?")  
+>  
+>	if ppcheck(rawlist,ct,lp):  
+>		print("Key was shared successfully!")  
+>		print("The secret key is:",gen_key(rawlist))  
+>		break  
+
 
 #Generate random numbers    
 >from silver_bullet.TRNG import trng    

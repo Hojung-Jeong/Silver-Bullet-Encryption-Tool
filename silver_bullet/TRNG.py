@@ -3,8 +3,9 @@
 	1. trng()	-	A true random number generator utilising data corruption. Data corruption occurs in number.num file.
 	2. trlist(size,limit)	-	Generates list of truly random numbers between 0 to value of limit variable whose length is to the value of size variable.
 
+
 >In case you want to compile this script
-This file MUST be compiled in a way to make data corruption. If it isn't compiled that way, security can be easily breached.
+	This file MUST be compiled in a way to make data corruption. If it isn't compiled that way, security can be easily breached.
 
 '''
 

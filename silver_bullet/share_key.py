@@ -1,7 +1,38 @@
 '''
+>List of functions
+	1. letsbegin()	-	This function returns list of 0 or 1(binary numbers) which must be kept secret, and cipher text and locked pad for validation.
+	2. gen_key(raw_value)	-	Returns hashed key for encryption/decryption
+	3. shuffleit(toshuffle,passphrase)	-	Shuffle the given list(toshuffle) by seeding passphrase. It means the results are predictable if he/she knows passphrase(which is impossible to a possible attacker).
+	4. ppcheck(exchanged,cipher_text,locked_pad)	-	Checks whether key exchange is finished. If it returns True, the key exchange was successful.
 
 
+>How to use it?
+	1. Suppose there are Alice, Bob, and Eve(So classic, but why not?). Alice wants to share a key with Bob, and Eve is trying to sniff on it.
+	2. Alice generates secret binary, and authentication cipher text and locked pad using letsbegin() function.
+	3. Alice shuffles secret binary with her passphrase using shuffleit() function.
+	4. Alice publishes shuffled binary, cipher text, and locked pad
+	5. Bob receives the shuffled binary number and shuffle it with his passphrase using shuffleit() function.
+	6. Bob generates a key with the shuffled binary using gen_key() function
+	7. Bob checks whether it is the secret that Alice wants to share with cipher text and locked pad Alice sent using ppcheck() function
+	8. If ppcheck() returns True, the shuffled binary is what Alice wants to share. Otherwise, Bob sends the shuffled binary back to Alice
+	9. Alice and Bob repeats 3~8 untill Bob reaches the secret Alice wants to share.
 
+
+>Demonstration
+import random
+from silver_bullet.share_key import *
+from silver_bullet.crypto import decrypt
+
+rawlist,ct,lp=letsbegin()
+
+while True:
+	rawlist=shuffleit(rawlist,"Now, it's time for a string")
+	rawlist=shuffleit(rawlist,"Isn't it?")
+
+	if ppcheck(rawlist,ct,lp):
+		print("Key was shared successfully!")
+		print("The secret key is:",gen_key(rawlist))
+		break
 '''
 
 
@@ -42,7 +73,7 @@ def letsbegin():
 	secret_key=gen_key(secret)
 	cipher_text,locked_pad=encrypt(test_text,secret_key)
 
-	return secret,secret_key,cipher_text,locked_pad
+	return secret,cipher_text,locked_pad
 
 
 def shuffleit(toshuffle,passphrase):
@@ -72,103 +103,3 @@ def ppcheck(exchanged,cipher_text,locked_pad):
 
 	except:
 		return False
-
-
-
-
-
-'''
-#Failing code
-
-import random
-from hashlib import sha1
-from silver_bullet.crypto import encrypt,decrypt
-from silver_bullet.TRNG import trlist
-
-
-numofdigit=10
-limit=2**numofdigit
-rounds=20
-test_text="Tadah!!!"
-
-
-def secretk(secrecy):
-	slen=len(secrecy)
-	splited=[secrecy[:round(slen/3)],secrecy[round(slen/3):round(slen/3)*2],secrecy[round(slen/3)*2:]]
-	holder=[]
-
-	for element in splited:
-		integerised=int(element,2)
-		hashed=sha1(str(integerised).encode()).hexdigest()
-
-		if len(holder)==2:
-			joined_holder=''.join(holder)
-			sliced=list(joined_holder)
-			random.seed(hashed)
-			random.shuffle(sliced)
-			return ''.join(sliced)
-		else:
-			holder.append(hashed)
-
-
-def rearrange(toshuffle,passphrase):
-	shuffled=[]
-
-	for element in toshuffle:
-		random.seed(passphrase)
-		listed=list(element)
-		random.shuffle(listed)
-		shuffled.append(''.join(listed))
-
-	return shuffled
-
-
-def letsbegin(passphrase):
-	secrets=trlist(rounds,limit)
-	binned=[]
-	
-	for element in secrets:
-		inbase2=bin(element)[2:]
-
-		if len(inbase2)<numofdigit:
-			shortage=numofdigit-len(inbase2)
-			zeros=['0' for counter in range(shortage)]
-			zero_joined=''.join(zeros)
-
-			inbase2=zero_joined+inbase2
-
-		binned.append(inbase2)
-
-	secret_key=secretk(''.join(binned))
-	cipher_text,locked_pad=encrypt(test_text,secret_key)
-
-	shuffled=rearrange(binned,passphrase)
-	joined=' '.join(shuffled)
-
-	return secret_key,joined,cipher_text,locked_pad
-
-
-def receive(target,passphrase,cipher_text,locked_pad):
-	target_list=target.split(' ')
-	shuffled=rearrange(target_list,passphrase)
-
-	try:
-		secret_key=secretk(''.join(shuffled))
-		plain_text=decrypt(cipher_text,locked_pad,secret_key)
-
-		if plain_text==test_text:
-			return secret_key,True
-		else:
-			shuffled_joined=' '.join(shuffled)
-			return shuffled_joined,False
-
-	except:
-		shuffled_joined=' '.join(shuffled)
-		return shuffled_joined,False
-
-
-def resend(target,passphrase):
-	target_list=target.split(' ')
-	shuffled=rearrange(target_list,passphrase)
-	return shuffled
-'''
