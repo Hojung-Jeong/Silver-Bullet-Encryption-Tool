@@ -24,15 +24,7 @@ Installing directly on Unix-based system
 >plain_text = decrypt ( cipher_text, locked_pad,  passphrase )  
 
 #Key exchange protocol    
--Demonstration  
->while True:  
->	rawlist=shuffleit(rawlist,"Now, it's time for a string")  
->	rawlist=shuffleit(rawlist,"Isn't it?")  
->  
->	if ppcheck(rawlist,ct,lp):  
->		print("Key was shared successfully!")  
->		print("The secret key is:",gen_key(rawlist))  
->		break  
+-Demonstration is in the comment section of key_share file. There are some limitations in .md file format, so please read the comments  
 
 
 #Generate random numbers    
