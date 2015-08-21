@@ -33,7 +33,7 @@ Installing directly on Unix-based system
 
 
 #How it works    
--Symmetric    
+-Crypto    
 1. The random number generator of this module makes randomness by executing several threads without lock. In any programming languages, if several threads are executed without delimiter, which makes them share same memory space, the result is unpredictable.    
 2. One of biggest security risks related to "many time pads" (basically doing one-time pad operations multiple times with the same pad) is called "Crib-dragging". It is an attack which utilises the fact that "multiple time pads" encrypt data using same pad and operations. However, if two different strings are encrypted using different operations, there is no way to drag the random pad out.    
 3. Plain text is compressed before being encrypted to prevent chosen cipher-text attack. This method works if Russian Copulation stands true
