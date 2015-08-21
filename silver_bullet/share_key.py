@@ -44,8 +44,8 @@ from silver_bullet.TRNG import trlist
 from silver_bullet.crypto import encrypt,decrypt
 
 
-numofdigit=50
-rounds=3
+numofdigit=75
+rounds=2
 test_text="Tadah!!!"
 
 
