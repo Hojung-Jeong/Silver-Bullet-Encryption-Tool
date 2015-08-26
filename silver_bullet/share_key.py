@@ -71,7 +71,8 @@ def letsbegin():
 	
 	secret=''.join(map(str,secret_list))
 	secret_key=gen_key(secret)
-	cipher_text,locked_pad=encrypt(test_text,secret_key)
+	ct,lp=encrypt(test_text,secret_key)
+	cipher_text,locked_pad=encrypt(ct+'-'+lp,secret_key)
 
 	return secret,cipher_text,locked_pad
 
@@ -94,12 +95,18 @@ def ppcheck(exchanged,cipher_text,locked_pad):
 	secret_key=gen_key(exchanged)
 
 	try:
-		plain_text=decrypt(cipher_text,locked_pad,secret_key)
+		peeled=decrypt(cipher_text,locked_pad,secret_key)
+		ct,lp=peeled.split('-')
 
-		if plain_text==test_text:
-			return True
-		else:
+		try:
+			plain_text=decrypt(ct,lp,secret_key)
+
+			if plain_text==test_text:
+				return True
+			else:
+				return False
+		except:
 			return False
-
+			
 	except:
 		return False
