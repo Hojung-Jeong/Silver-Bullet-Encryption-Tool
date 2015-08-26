@@ -43,7 +43,7 @@ Installing directly on Unix-based system
 2. This tool is not different from that. Shuffle a list in same pattern(A-B-A-B-A-B...), so that it ends up going back to original.    
 3. What makes this protocol perfectly secure is that the list items are either 0 or 1. Therefore, it is simply impossible to track which element is in which position because there are so many other candidates as well.    
 4. Now, Alice just needs to send an encrypted string and locked pad to Bob to prove that they share the same key, and it is indeed from Alice.    
-5. Authentication text and pad are encrypted twice to prevent attackers from decrypting it directly using the test text("Tada!!"). It is possible because SBET is malleable and resistant to chosen-cipher text attack(Russian Copulation)
+5. Authentication text and pad are encrypted twice to prevent attackers from decrypting it directly using the test text("Tada!!"). It is possible because SBET is malleable and resistant to chosen-cipher text attack at the same time(again, if Russian Copulation stands true)
 
 
 #License    
