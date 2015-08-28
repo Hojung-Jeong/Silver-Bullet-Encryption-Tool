@@ -1,9 +1,9 @@
 '''
 >List of functions
 	1. letsbegin()	-	This function returns list of 0 or 1(binary numbers) which must be kept secret, and cipher text and locked pad for validation.
-	2. gen_key(raw_value)	-	Returns hashed key for encryption/decryption
+	2. gen_key(raw_value)	-	Returns hashed key for encryption/decryption, and encrypted string and pads for authentication
 	3. shuffleit(toshuffle,passphrase)	-	Shuffle the given list(toshuffle) by seeding passphrase. It means the results are predictable if he/she knows passphrase(which is impossible to a possible attacker).
-	4. ppcheck(exchanged,cipher_text,locked_pad)	-	Checks whether key exchange is finished. If it returns True, the key exchange was successful.
+	4. ppcheck(exchanged,txtct,txtlp,ppct,pplp)	-	Checks whether key exchange is finished. If it returns True, the key exchange was successful.
 
 
 >How to use it?
@@ -23,13 +23,13 @@ import random
 from silver_bullet.share_key import *
 from silver_bullet.crypto import decrypt
 
-rawlist,ct,lp=letsbegin()
+rawlist,txtct,txtlp,ppct,pplp=letsbegin()
 
 while True:
 	rawlist=shuffleit(rawlist,"Now, it's time for a string")
 	rawlist=shuffleit(rawlist,"Isn't it?")
 
-	if ppcheck(rawlist,ct,lp):
+	if ppcheck(rawlist,txtct,txtlp,ppct,pplp):
 		print("Key was shared successfully!")
 		print("The secret key is:",gen_key(rawlist))
 		break
@@ -40,7 +40,7 @@ while True:
 
 import random
 from hashlib import sha1
-from silver_bullet.TRNG import trlist
+from silver_bullet.TRNG import trng,trlist
 from silver_bullet.crypto import encrypt,decrypt
 
 
@@ -54,15 +54,17 @@ def gen_key(raw_value):
 	first=raw_value[:round(raw_length/3)]
 	second=raw_value[round(raw_length/3):round(raw_length/3)*2]
 	third=raw_value[round(raw_length/3)*2:round(raw_length/3)*3]
+	seed_list=[first,second,third]
+	key=''
 
-	key=sha1(str(int(first,2)).encode()).hexdigest()
-	key=key+sha1(str(int(second,2)).encode()).hexdigest()
-	sliced_key=list(key)
-	seed_string=sha1(str(int(third,2)).encode()).hexdigest()
-	random.seed(seed_string)
-	random.shuffle(sliced_key)
-	key=''.join(sliced_key)
-
+	for element in seed_list:
+		key+=sha1(str(int(element,2)).encode()).hexdigest()
+		sliced_key=list(key)
+		seed_string=sha1(str(int(raw_value,2)).encode()).hexdigest()
+		random.seed(seed_string)
+		random.shuffle(sliced_key)
+		key=''.join(sliced_key)
+		
 	return key
 
 
@@ -71,10 +73,12 @@ def letsbegin():
 	
 	secret=''.join(map(str,secret_list))
 	secret_key=gen_key(secret)
-	ct,lp=encrypt(test_text,secret_key)
-	cipher_text,locked_pad=encrypt(ct+'-'+lp,secret_key)
+	raw_ct,raw_lp=encrypt(test_text,secret_key)
+	tmpp=sha1(str(trng).encode()).hexdigest()
+	txtct,txtlp=encrypt(raw_ct+'-'+raw_lp,tmpp)
+	ppct,pplp=encrypt(tmpp,secret_key)
 
-	return secret,cipher_text,locked_pad
+	return secret,txtct,txtlp,ppct,pplp
 
 
 def shuffleit(toshuffle,passphrase):
@@ -91,22 +95,19 @@ def shuffleit(toshuffle,passphrase):
 	return ''.join(shuffled)
 
 
-def ppcheck(exchanged,cipher_text,locked_pad):
+def ppcheck(exchanged,txtct,txtlp,ppct,pplp):
 	secret_key=gen_key(exchanged)
 
 	try:
-		peeled=decrypt(cipher_text,locked_pad,secret_key)
-		ct,lp=peeled.split('-')
+		tmpp=decrypt(ppct,pplp,secret_key)
+		peeled=decrypt(txtct,txtlp,tmpp)
+		cipher_text,locked_pad=peeled.split('-')
+		plain_text=decrypt(cipher_text,locked_pad,secret_key)
 
-		try:
-			plain_text=decrypt(ct,lp,secret_key)
-
-			if plain_text==test_text:
-				return True
-			else:
-				return False
-		except:
+		if plain_text==test_text:
+			return True
+		else:
 			return False
-			
+
 	except:
 		return False
