@@ -74,7 +74,7 @@ def letsbegin():
 	secret=''.join(map(str,secret_list))
 	secret_key=gen_key(secret)
 	raw_ct,raw_lp=encrypt(test_text,secret_key)
-	tmpp=sha1(str(trng).encode()).hexdigest()
+	tmpp=sha1(str(trng()).encode()).hexdigest()
 	txtct,txtlp=encrypt(raw_ct+'-'+raw_lp,tmpp)
 	ppct,pplp=encrypt(tmpp,secret_key)
 
