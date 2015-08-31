@@ -42,8 +42,9 @@ Installing directly on Unix-based system
 1. If you shuffle a stack of cards in EXACTLY SAME WAY, then you end up going back to where it started.    
 2. This tool is not different from that. Shuffle a list in same pattern(A-B-A-B-A-B...), so that it ends up going back to original.    
 3. What makes this protocol perfectly secure is that the list items are either 0 or 1. Therefore, it is simply impossible to track which element is in which position because there are so many other candidates as well.    
-4. Now, Alice just needs to send an encrypted string and locked pad to Bob to prove that they share the same key, and it is indeed from Alice.    
-5. Authentication text and pad are encrypted in complex way to prevent attackers from decrypting it directly using the test text("Tada!!"). It is possible because SBET is malleable and resistant to chosen-cipher text attack at the same time(again, if Russian Copulation stands true)
+4. On top of that, there is a pair of secret binarys and they are SAMEd(XORed) before generating keys. It makes it impossible to guess the number of 1s and 0s in the integrated list.    
+5. Now, Alice just needs to send an encrypted string and locked pad to Bob to prove that they share the same key, and it is indeed from Alice.    
+6. Authentication text and pad are encrypted in complex way to prevent attackers from decrypting it directly using the test text("Tada!!"). It is possible because SBET is malleable and resistant to chosen-cipher text attack at the same time(again, if Russian Copulation stands true)
 
 
 #License    

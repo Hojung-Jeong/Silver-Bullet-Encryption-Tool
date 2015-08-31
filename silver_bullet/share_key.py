@@ -3,19 +3,18 @@
 	1. letsbegin()	-	This function returns list of 0 or 1(binary numbers) which must be kept secret, and cipher text and locked pad for validation.
 	2. gen_key(raw_value)	-	Returns hashed key for encryption/decryption, and encrypted string and pads for authentication
 	3. shuffleit(toshuffle,passphrase)	-	Shuffle the given list(toshuffle) by seeding passphrase. It means the results are predictable if he/she knows passphrase(which is impossible to a possible attacker).
-	4. ppcheck(exchanged,txtct,txtlp,ppct,pplp)	-	Checks whether key exchange is finished. If it returns True, the key exchange was successful.
+	4. ppcheck(exchanged1,exchanged2,txtct,txtlp,ppct,pplp)	-	Checks whether key exchange is finished. If it returns True, the key exchange was successful.
 
 
 >How to use it?
 	1. Suppose there are Alice, Bob, and Eve(So classic, but why not?). Alice wants to share a key with Bob, and Eve is trying to sniff on it.
-	2. Alice generates secret binary, and authentication cipher text and locked pad using letsbegin() function.
-	3. Alice shuffles secret binary with her passphrase using shuffleit() function.
-	4. Alice publishes shuffled binary, cipher text, and locked pad
-	5. Bob receives the shuffled binary number and shuffle it with his passphrase using shuffleit() function.
-	6. Bob generates a key with the shuffled binary using gen_key() function
-	7. Bob checks whether it is the secret that Alice wants to share with cipher text and locked pad Alice sent using ppcheck() function
-	8. If ppcheck() returns True, the shuffled binary is what Alice wants to share. Otherwise, Bob sends the shuffled binary back to Alice
-	9. Alice and Bob repeats 3~8 untill Bob reaches the secret Alice wants to share.
+	2. Alice generates a pair of secret binarys, and a authentication cipher texts and locked pads using letsbegin() function.
+	3. Alice shuffles her secret binarys with her passphrase using shuffleit() function.
+	4. Alice publishes shuffled pair of binarys, cipher text, and locked pad
+	5. Bob receives the shuffled pair of binarys, and shuffles it with his passphrase using shuffleit() function.
+	6. Bob checks whether it is the secret that Alice wants to share with cipher text and locked pad Alice sent using ppcheck() function
+	7. If ppcheck() returns True, the shuffled binary is what Alice wants to share. Otherwise, Bob sends the shuffled binary back to Alice
+	8. Alice and Bob repeats 3~7 untill Bob reaches the secret Alice wants to share.
 
 
 >Demonstration
@@ -23,15 +22,25 @@ import random
 from silver_bullet.share_key import *
 from silver_bullet.crypto import decrypt
 
-rawlist,txtct,txtlp,ppct,pplp=letsbegin()
+Alicepp='Росся'
+Bobpp='Меня'
+
+raw1,raw2,txtct,txtlp,ppct,pplp,secret_key=letsbegin()
 
 while True:
-	rawlist=shuffleit(rawlist,"Now, it's time for a string")
-	rawlist=shuffleit(rawlist,"Isn't it?")
+	raw1=shuffleit(raw1,Alicepp)
+	raw2=shuffleit(raw2,Alicepp)
 
-	if ppcheck(rawlist,txtct,txtlp,ppct,pplp):
+	# raw1 and raw2 are published
+
+	raw1=shuffleit(raw1,Bobpp)
+	raw2=shuffleit(raw2,Bobpp)
+
+	checking=ppcheck(raw1,raw2,txtct,txtlp,ppct,pplp)
+
+	if checking:
 		print("Key was shared successfully!")
-		print("The secret key is:",gen_key(rawlist))
+		print("The secret key is:",checking)
 		break
 '''
 
@@ -41,6 +50,7 @@ while True:
 import random
 from hashlib import sha1
 from silver_bullet.TRNG import trng,trlist
+from silver_bullet.bitwise import bitflip,add_them
 from silver_bullet.crypto import encrypt,decrypt
 
 
@@ -69,16 +79,22 @@ def gen_key(raw_value):
 
 
 def letsbegin():
-	secret_list=trlist(numofdigit*rounds,2)
-	
-	secret=''.join(map(str,secret_list))
+	first=trlist(numofdigit*rounds,2)
+	second=bitflip(first)
+	randomiser=sha1(str(trng()).encode()).hexdigest()
+	random.seed(randomiser)
+	random.shuffle(second)
+	fjoined=''.join(map(str,first))
+	sjoined=''.join(map(str,second))
+
+	secret=''.join(add_them(fjoined,sjoined))
 	secret_key=gen_key(secret)
 	raw_ct,raw_lp=encrypt(test_text,secret_key)
 	tmpp=sha1(str(trng()).encode()).hexdigest()
 	txtct,txtlp=encrypt(raw_ct+'-'+raw_lp,tmpp)
 	ppct,pplp=encrypt(tmpp,secret_key)
 
-	return secret,txtct,txtlp,ppct,pplp
+	return fjoined,sjoined,txtct,txtlp,ppct,pplp,secret_key
 
 
 def shuffleit(toshuffle,passphrase):
@@ -95,8 +111,9 @@ def shuffleit(toshuffle,passphrase):
 	return ''.join(shuffled)
 
 
-def ppcheck(exchanged,txtct,txtlp,ppct,pplp):
-	secret_key=gen_key(exchanged)
+def ppcheck(exchanged1,exchanged2,txtct,txtlp,ppct,pplp):
+	secret=''.join(add_them(exchanged1,exchanged2))
+	secret_key=gen_key(secret)
 
 	try:
 		tmpp=decrypt(ppct,pplp,secret_key)
@@ -105,7 +122,7 @@ def ppcheck(exchanged,txtct,txtlp,ppct,pplp):
 		plain_text=decrypt(cipher_text,locked_pad,secret_key)
 
 		if plain_text==test_text:
-			return True
+			return secret_key
 		else:
 			return False
 
